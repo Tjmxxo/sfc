@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd">
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <!--        <property name="cacheableMappingLocations">
+                    <list>
+                        <value>classpath:ehcache.xml</value>
+                    </list>
+                </property>-->
+        <property name="mappingLocations">
+            <list>
+                <value>classpath:mapper/CinemaTbDTO.hbm.xml</value>
+                <value>classpath:mapper/CityTbDTO.hbm.xml</value>
+                <value>classpath:mapper/HallTbDTO.hbm.xml</value>
+                <value>classpath:mapper/MovieTbDTO.hbm.xml</value>
+                <value>classpath:mapper/OrderTbDTO.hbm.xml</value>
+                <value>classpath:mapper/PlanTbDTO.hbm.xml</value>
+                <value>classpath:mapper/RoleTbDTO.hbm.xml</value>
+                <value>classpath:mapper/SeatTbDTO.hbm.xml</value>
+                <value>classpath:mapper/SelectTbDTO.hbm.xml</value>
+                <value>classpath:mapper/UserTbDTO.hbm.xml</value>
+                <value>classpath:mapper/CouponTbDTO.hbm.xml</value>
+                <value>classpath:mapper/OrderSeatTbDTO.hbm.xml</value>
+                <value>classpath:mapper/PermissionTbDTO.hbm.xml</value>
+                <value>classpath:mapper/VipTbDTO.hbm.xml</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.format_sql">true</prop>
+                <prop key="c3p0.min_size">5</prop>
+                <prop key="c3p0.max_size">50</prop>
+                <prop key="c3p0.idle_test_period">120</prop>
+                <prop key="c3p0.timeout">2000</prop>
+                <prop key="hibernate.c3p0.idle_test_period">3600</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="com.mysql.jdbc.Driver"/>
+        <property name="jdbcUrl" value="jdbc:mysql://101.132.114.242:3306/sfc_db?useSSL=true"/>
+        <property name="user" value="root"/>
+        <property name="password" value="595525"/>
+    </bean>
+    <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+</beans>

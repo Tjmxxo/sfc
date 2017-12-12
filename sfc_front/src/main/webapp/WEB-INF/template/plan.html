@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <link rel="stylesheet" type="text/css" href="../../css/sheet.css"/>
+    <link rel="stylesheet" type="text/css" href="../../js/dialog/easydialog.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/style.css"/>
+    <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+    <title>在线选座-上影影城</title>
+</head>
+
+<body class="address_area">
+<script type="text/javascript" src="../../js/dialog/easydialog.min.js"></script>
+<script type="text/javascript" src="../../js/script.js"></script>
+<script type="text/javascript" src="../../js/sheet.js"></script>
+<script type="text/javascript" src="../../js/seat.js"></script>
+<%@include file="/WEB-INF/jsp/commons/header.jsp"%>
+<!--------- 顶部 -------------->
+<div class="page_box pt_30_new pb_30">
+    <div class="background_color">
+        <div class="select_top_choose clearfix">
+            <span>1.选择影片场次</span>
+            <span class="select_current">2.在线选座</span>
+            <span>3.支付订单</span>
+            <span>4.影城取票观影</span>
+        </div>
+        <div class="select_content clearfix">
+            <div class="select_left fl">
+                <div class="select_tip clearfix">
+                    <span class="free_seat"></span>
+                    <font>可选座位</font>
+                    <span class="choose_seat"></span>
+                    <font>已选座位</font>
+                    <span class="lock_seat"></span>
+                    <font>不可选座位</font>
+                    <!--<span class="doubseat_seat"></span>
+                    <font>情侣座</font>-->
+                </div>
+                <div class="select_screen"><span>SFC上影影城（金桥太茂店） 杜比全景声厅银幕</span></div>
+                <div class="select_seat clearfix" id="seat_map"><!-- 座位图 --></div>
+            </div>
+            <div class="select_right fr">
+                <div class="select_picture">
+                    <a href="site/choose/101310"><img src="http://audio.komovie.cn/sns/2017/10/24/96789839896102156148.jpg" alt="" width="271px" height="405px"/></a>
+                    <div class="select_layer"></div>
+                    <ul class="layer_content">
+                        <li class="layer_title">片名：寻梦环游记</li>
+                        <li>语言制式： 3D</li>
+                        <li>影片时长：分钟</li>
+                        <li class="layer_key">主要演员：爱德华·詹姆斯·奥莫斯 / 阿兰纳·乌巴奇 / 本杰明·布拉特 / 盖尔·加西亚·贝纳尔 / 加布里埃尔·伊格莱西亚斯 / 切奇·马林 / 海梅·卡米尔 / 阿方索·阿雷奥 / 隆巴多·博伊尔 / 安东尼·冈萨雷斯 / 蕾妮·维克多 / 路易斯·瓦尔德斯 / Sofía Espinosa /
+                            Selene Luna / Blanca Araceli
+                        </li>
+                    </ul>
+                </div>
+                <input type="hidden" value="90" id="plan_price"/>
+                <dl class="select_word">
+                    <dt>影院：SFC上影影城（金桥太茂店）</dt>
+                    <dd>影厅：杜比全景声厅</dd>
+                    <dd class="select_session clearfix">
+                        <p class="fr"><a href="site/choose/101310">重新选择</a></p>
+                        场次：2017-12-03 14:50:00 <font>￥90</font>/张
+                    </dd>
+                    <dd class="seat_number">座位：<font><span class="seat_sell"></span></font></dd>
+                    <dd class="seat_information">单击左侧座位图选择座位，再次单击取消</dd>
+                    <dd class="select_total select_line"><span>总计：</span><strong id="total_price">￥0.00</strong></dd>
+                </dl>
+                <ul class="select_inter">
+                    <li class="clearfix"><span>手机号码：</span><input type="text" id="order_mobile" disabled="disabled" value=""></li>
+                    <li><a href="javascript:void(0)" id="buy_next">下一步</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    /*      var planId='1512283803112910105';
+            $(function(){
+                initSeat();
+            })*/
+</script>
+<!--------- 底部 ---------------->
+<%@include file="/WEB-INF/jsp/commons/footer.jsp"%>
+<img src="../../images/loading.gif" class="ko_loading">
+</body>
+</html>
+<script type="text/javascript">
+</script>
+

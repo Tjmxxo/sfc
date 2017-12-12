@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="cc.xpress.bean.dto.CinemaTbDTO" table="cinema_tb" schema="sfc_db">
+        <id name="cinemaId">
+            <column name="cinema_id" sql-type="int(11)"/>
+            <generator class="native"/>
+        </id>
+        <property name="cinemaName">
+            <column name="cinema_name" sql-type="varchar(100)" length="100" not-null="true"/>
+        </property>
+        <property name="cinemaDescribe">
+            <column name="cinema_describe" sql-type="text"/>
+        </property>
+        <property name="cinemaAddress">
+            <column name="cinema_address" sql-type="varchar(200)" length="200"/>
+        </property>
+        <property name="cinemaTel">
+            <column name="cinema_tel" sql-type="varchar(100)" length="100"/>
+        </property>
+        <property name="cinemaBusinessHours">
+            <column name="cinema_business_hours" sql-type="varchar(100)" length="100"/>
+        </property>
+        <property name="cinemaLongitude">
+            <column name="cinema_longitude" sql-type="varchar(20)" length="20"/>
+        </property>
+        <property name="cinemaLatitude">
+            <column name="cinema_latitude" sql-type="varchar(20)" length="20"/>
+        </property>
+        <property name="cinemaImg">
+            <column name="cinema_img" sql-type="varchar(200)" length="200"/>
+        </property>
+        <!--cinema与city的关系由cinema维护-->
+        <many-to-one name="cityTbDTO" column="city_id" class="cc.xpress.bean.dto.CityTbDTO" cascade="save-update"/>
+        <!--cinema与vip的关系由vip维护-->
+        <set name="vipTbDTOSet" table="vip_tb" order-by="vip_id" inverse="true">
+            <key column="cinema_id"/>
+            <one-to-many class="cc.xpress.bean.dto.VipTbDTO"/>
+        </set>
+        <!--cinema与hall的关系由hall维护-->
+        <set name="hallTbDTOSet" table="hall_tb" order-by="hall_id" inverse="true">
+            <key column="cinema_id"/>
+            <one-to-many class="cc.xpress.bean.dto.CouponTbDTO"/>
+        </set>
+        <!--cinema与coupon的关系由coupon维护-->
+        <set name="couponTbDTOSet" table="coupon_tb" order-by="coupon_id" inverse="true">
+            <key column="cinema_id"/>
+            <one-to-many class="cc.xpress.bean.dto.CouponTbDTO"/>
+        </set>
+    </class>
+</hibernate-mapping>

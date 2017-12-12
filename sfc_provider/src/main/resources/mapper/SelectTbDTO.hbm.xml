@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="cc.xpress.bean.dto.SelectTbDTO" table="select_tb" schema="sfc_db">
+        <id name="selectId">
+            <column name="select_id" sql-type="bigint(20)"/>
+            <generator class="native"/>
+        </id>
+        <property name="seatStatus">
+            <column name="seat_status" sql-type="int(11)"/>
+        </property>
+        <!--select和seat的关系由select维护-->
+        <many-to-one name="seatTbDTO" column="seat_id" cascade="save-update" class="cc.xpress.bean.dto.SeatTbDTO" lazy="false"/>
+        <!--select和plan的关系由plan维护-->
+        <many-to-one name="planTbDTO" column="plan_id" class="cc.xpress.bean.dto.PlanTbDTO"/>
+    </class>
+</hibernate-mapping>

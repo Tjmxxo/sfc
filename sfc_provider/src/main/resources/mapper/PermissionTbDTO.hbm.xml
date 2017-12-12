@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="cc.xpress.bean.dto.PermissionTbDTO" table="permission_tb" schema="sfc_db">
+        <id name="permissionId">
+            <column name="permission_id" sql-type="int(11)"/>
+            <generator class="native"/>
+        </id>
+        <property name="permissionName">
+            <column name="permission_name" sql-type="varchar(100)" length="100"/>
+        </property>
+        <property name="permissionDescribe">
+            <column name="permission_describe" sql-type="varchar(200)" length="200"/>
+        </property>
+        <property name="permissionStatus">
+            <column name="permission_status" sql-type="int(11)"/>
+        </property>
+    </class>
+</hibernate-mapping>

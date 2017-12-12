@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo" xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+    <!--配置dubbo的消费者-->
+    <dubbo:application name="dubbo-front"/>
+    <dubbo:registry address="zookeeper://101.132.114.242:2181"/>
+    <dubbo:reference interface="cc.xpress.service.IFrontUserService" id="frontUserService"/>
+    <dubbo:reference interface="cc.xpress.service.ICityService" id="cityService"/>
+    <dubbo:reference interface="cc.xpress.service.IMovieService" id="movieService"/>
+    <dubbo:reference interface="cc.xpress.service.ICinemaService" id="cinemaService"/>
+    <dubbo:reference interface="cc.xpress.service.IPlanService" id="planService"/>
+    <dubbo:reference interface="cc.xpress.service.IPlanSeatService" id="planSeatService"/>
+    <dubbo:reference interface="cc.xpress.service.IOrderService" id="orderService"/>
+</beans>

@@ -1,0 +1,253 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" type="text/css" href="../../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/sheet.css"/>
+    <link rel="stylesheet" type="text/css" href="../../js/dialog/easydialog.css"/>
+    <script type="text/javascript" src="../../js/jquery.min.js"></script>
+    <title>用户登录-上影电影网</title>
+</head>
+<body>
+<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="../../js/dialog/easydialog.min.js"></script>
+<script type="text/javascript" src="../../js/script.js"></script>
+
+<div class="page_content">
+    <div class="login_content">
+        <div class="login_top clearfix"><a href=""><span></span></a><strong>登录上影电影网</strong></div>
+        <div class="login_detail clearfix" id="login_height">
+            <form action="user/login" method="post" id="login_form">
+                <div class="login_left fl content_clear" id="login_left">
+                    <ul>
+                        <li>
+                            <div class="login_inter">
+                                <span class="inter_left inter_left_current"></span>
+                                <span class="inter_middle inter_middle_current">
+	                            <font></font>
+	                            <input style="display:none"><!-- for disable autocomplete on chrome -->
+	                            <input type="text" name="mobile" id="mobile" placeholder="手机号码" autocomplete="off"/>
+	                        </span>
+                                <span class="inter_right inter_right_current"></span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="login_inter">
+                                <span class="inter_left"></span>
+                                <span class="inter_middle">
+	                            <font class="login_password"></font>
+	                            <input style="display:none"><!-- for disable autocomplete on chrome -->
+	                            <input type="password" name="password" id="password" placeholder="输入登录密码" autocomplete="off">
+	                        </span>
+                                <span class="inter_right"></span>
+                            </div>
+                        </li>
+                        <li class="clearfix">
+                            <div class="login_inter fl">
+                                <span class="inter_left"></span>
+                                <span class="inter_middle" style="width: 149px!important;"><input type="text" name="valid" id="valid" placeholder="输入右侧验证码" class="width_141"></span>
+                                <span class="inter_right"></span>
+                            </div>
+                            <img alt="点击换图" title="点击换图" class="login_word" style="cursor:pointer" id="valid_img" testLimit="1" src="/front/register/code"/> <span class="login_change" id="valid_img"
+                                                                                                                                                                   style="cursor: pointer;">换一张</span>
+                        </li>
+                        <li class="login_button"><input id="login_button" type="button" class="cursor" value="登&nbsp;&nbsp;&nbsp;&nbsp;录"><a href="user/reset">忘记密码？</a></li>
+                        <!--                        <li class="login_method clearfix">-->
+                        <!--                            <span>使用第三方账号登录</span>-->
+                        <!--                            <a href="#"></a>-->
+                        <!--                            <a href="#" class="login_xin"></a>-->
+                        <!--                            <a href="#" class="login_pay"></a>-->
+                        <!--                        </li>-->
+                    </ul>
+                </div>
+            </form>
+            <div class="login_right fl">
+                <ul>
+                    <li class="login_none">还没有上影电影网账号？</li>
+                    <li class="login_register"><input type="button" id="reg" class="cursor" value="立即注册"></li>
+                    <li class="login_tip clearfix">
+                        <dl>
+                            <dt><img src="../../images/login_number.png" width="96px" height="96px" alt=""></dt>
+                            <dd class="login_key">微信服务号</dd>
+                            <dd class="login_icon"></dd>
+                        </dl>
+                        <dl>
+                            <dt><img src="../../images/login_service_alipay.png" width="96px" height="96px" alt=""></dt>
+                            <dd class="login_key">支付宝服务号</dd>
+                            <dd class="login_meet"></dd>
+                        </dl>
+                    </li>
+                    <li class="login_tell clearfix">
+                        <span class="login_phone"></span>
+                        <dl>
+                            <dt>手机客户端</dt>
+                            <dd class="login_two">For Android & iPhone</dd>
+                            <dd><img src="../../images/download_number.png" alt=""></dd>
+                            <dd class="login_one">扫一扫 免费下载</dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bg_black">
+    <div class="wrap">
+        <div class="f_12 white">
+            <div class="login_bottom_copyright left ">
+                <a href="site/help/21" target="_blank">隐私保护</a>
+                <span>|</span>
+                <a href="" target="_blank">联系我们</a>
+                <span>|</span><a href="site/help/18" target="_blank">关于我们</a>
+                <span>|</span><a href="site/help/20" target="_blank">团体购票</a>
+            </div>
+            <div class="line_46 right">沪ICP备15055478号 Copyright © 2015 sfccinema.com 版权所有</div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    jQuery.ajaxSetup({
+        beforeSend: function () {
+            $(".ko_loading").show();
+        },
+        complete: function () {
+            $(".ko_loading").hide();
+        }
+    });
+    $(function () {
+        if (!placeholderSupport()) {   // 判断浏览器是否支持 placeholder
+            $('[placeholder]').focus(function () {
+                var input = $(this);
+                if (input.val() == input.attr('placeholder')) {
+                    input.val('');
+                    input.removeClass('placeholder');
+                }
+            }).blur(function () {
+                var input = $(this);
+                if (input.val() == '' || input.val() == input.attr('placeholder')) {
+                    input.addClass('placeholder');
+                    input.val(input.attr('placeholder'));
+                }
+            }).blur();
+        }
+    });
+
+    function placeholderSupport() {
+        return 'placeholder' in document.createElement('input');
+    }
+
+    //绑定回车事件
+    document.onkeyup = function (e) {
+        e = e || window.event;
+        if (e.keyCode == 13) {
+            var target = e.target || e.srcElment;//srcElment针对IE
+            if (target.id == 'valid') {
+                $('#login_button').trigger("click");
+            }
+        }
+    };
+
+    $(document).ready(function () {
+        jQuery('#valid').focus(function () {
+            $(this).css("color", "#222222");
+            jQuery('.inter_middle').attr('class', 'inter_middle');
+            jQuery('.inter_left').attr('class', 'inter_left');
+            jQuery('.inter_right').attr('class', 'inter_right');
+            jQuery('#valid').parent().attr('class', 'inter_middle inter_middle_current');
+            jQuery('#valid').parent().prev().attr('class', 'inter_left inter_left_current');
+            jQuery('#valid').parent().next().attr('class', 'inter_right inter_right_current');
+        });
+        jQuery('#mobile').focus(function () {
+            $(this).css("color", "#222222");
+            jQuery('.inter_middle').attr('class', 'inter_middle');
+            jQuery('.inter_left').attr('class', 'inter_left');
+            jQuery('.inter_right').attr('class', 'inter_right');
+            jQuery('#mobile').parent().attr('class', 'inter_middle inter_middle_current');
+            jQuery('#mobile').parent().prev().attr('class', 'inter_left inter_left_current');
+            jQuery('#mobile').parent().next().attr('class', 'inter_right inter_right_current');
+        });
+        jQuery('#password').focus(function () {
+            $(this).css("color", "#222222");
+            jQuery('.inter_middle').attr('class', 'inter_middle');
+            jQuery('.inter_left').attr('class', 'inter_left');
+            jQuery('.inter_right').attr('class', 'inter_right');
+            jQuery('#password').parent().attr('class', 'inter_middle inter_middle_current');
+            jQuery('#password').parent().prev().attr('class', 'inter_left inter_left_current');
+            jQuery('#password').parent().next().attr('class', 'inter_right inter_right_current');
+        });
+        jQuery('#reg').click(function () {
+            location.href = 'user/reg';
+        });
+        /*changeValid();*/
+    });
+    /*更换验证码*/
+    jQuery('#valid_img').click(function () {
+        changeValid();
+    });
+
+    function changeValid() {
+        jQuery.ajax({
+            url: "/front/register/code",
+            success: function (data) {
+                jQuery('#valid_img').prop('src', "/front/register/code");
+            }
+        });
+    }
+
+    // 登录
+    jQuery("#login_button").click(function () {
+        var mobile = jQuery("input[name=mobile]").val().replace(/[^\d]|-/g, '');
+        var pass = jQuery("input[name=password]").val();
+        var valid = jQuery("input[name=valid]").val();
+        var week = jQuery('input[name=week]').attr('checked');
+        if (!testMobile(mobile)) {
+            showEasyMsg("手机号码为空或填写错误！");
+            return false;
+        }
+        if (pass == "") {
+            showEasyMsg("请输入密码！");
+            return false;
+        }
+        if ("" == valid) {
+            showEasyMsg('请输入验证码');
+            return false;
+        }
+
+        jQuery.ajax({
+            url: 'user/valid',
+            success: function (rs) {
+                if (valid.toLowerCase() != rs) {
+                    showEasyMsg("验证码错误");
+                    changeValid();
+                    return false;
+                } else {
+                    $.ajax({
+                        url: 'database/login',
+                        data: {username: mobile, password: pass, week: week},
+                        success: function (data) {
+                            if (data['status'] == 0) {
+                                var returnurl = '';
+                                if (returnurl == 'user/Logout') {
+                                    return_url = 'site/index';
+                                } else if (returnurl.indexOf('member/') >= 0) {
+                                    return_url = 'member/index';
+                                } else {
+                                    return_url = returnurl;
+                                }
+                                location.href = return_url;
+                            } else {
+                                showEasyMsg(data['error']);
+                                changeValid();
+                                return false;
+                            }
+                        }
+                    });
+                }
+            }
+        });
+    });
+</script>
+<script type="text/javascript">
+</script>
+

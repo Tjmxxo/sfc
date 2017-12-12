@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://code.alibabatech.com/schema/dubbo
+       http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--IoC直接支持-->
+    <context:annotation-config/>
+    <!--扫包-->
+    <context:component-scan base-package="cc.xpress.service,cc.xpress.dao,cc.xpress.provider.impl.service,cc.xpress.plantimer"/>
+    <!--导入hibernate配置-->
+    <import resource="classpath:spring-hibernate.xml"/>
+    <import resource="classpath:spring-timer.xml"/>
+    <!--<import resource="spring-rabbitmq.xml"/>-->
+    <dubbo:application name="dubbo-provider1"/>
+    <dubbo:registry address="zookeeper://localhost:2181"/>
+    <dubbo:protocol name="dubbo" port="20000" serialization="java"/>
+    <dubbo:service interface="cc.xpress.service.ICinemaService" ref="cinemaService"/>
+    <dubbo:service interface="cc.xpress.service.IUserService" ref="userService"/>
+    <dubbo:service interface="cc.xpress.service.IPlanService" ref="planService"/>
+    <dubbo:service interface="cc.xpress.service.ICinemaChangeImpl" ref="cinemaService2"/>
+    <dubbo:service interface="cc.xpress.service.IFrontUserService" ref="frontUserService"/>
+    <dubbo:service interface="cc.xpress.service.IVipService" ref="vipService"/>
+    <dubbo:service interface="cc.xpress.service.IHallService" ref="hallService"/>
+    <dubbo:service interface="cc.xpress.service.ICityService" ref="cityService"/>
+    <dubbo:service interface="cc.xpress.service.IMovieService" ref="movieService"/>
+    <dubbo:service interface="cc.xpress.service.IPlanTimerService" ref="planTimerServieImpl"/>
+    <dubbo:service interface="cc.xpress.service.IPlanSeatService" ref="planSeatService"/>
+    <dubbo:service interface="cc.xpress.service.IOrderService" ref="orderService"/>
+    <dubbo:service interface="cc.xpress.service.ISeatService" ref="seatService"/>
+    <dubbo:service interface="cc.xpress.service.IUserCountService" ref="userCountService"/>
+    <dubbo:service interface="cc.xpress.service.IUrgencyService" ref="urgencyService"/>
+</beans>

@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">jdbc:mysql://192.168.56.147/sfc_db?useSSL=true</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">8286565161</property>
+        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+        <property name="cache.use_second_level_cache">true</property>
+        <property name="hibernate.cache.use_query_cache">true</property>
+        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory</property>
+        <mapping resource="mapper/CinemaTbDTO.hbm.xml"/>
+        <mapping resource="mapper/CityTbDTO.hbm.xml"/>
+        <mapping resource="mapper/HallTbDTO.hbm.xml"/>
+        <mapping resource="mapper/MovieTbDTO.hbm.xml"/>
+        <mapping resource="mapper/OrderTbDTO.hbm.xml"/>
+        <mapping resource="mapper/PlanTbDTO.hbm.xml"/>
+        <mapping resource="mapper/RoleTbDTO.hbm.xml"/>
+        <mapping resource="mapper/SeatTbDTO.hbm.xml"/>
+        <mapping resource="mapper/SelectTbDTO.hbm.xml"/>
+        <mapping resource="mapper/UserTbDTO.hbm.xml"/>
+        <mapping resource="mapper/CouponTbDTO.hbm.xml"/>
+        <mapping resource="mapper/OrderSeatTbDTO.hbm.xml"/>
+        <mapping resource="mapper/PermissionTbDTO.hbm.xml"/>
+        <mapping resource="mapper/VipTbDTO.hbm.xml"/>
+
+    </session-factory>
+</hibernate-configuration>

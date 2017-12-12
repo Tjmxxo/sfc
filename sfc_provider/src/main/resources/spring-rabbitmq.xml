@@ -1,0 +1,59 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/rabbit
+           http://www.springframework.org/schema/rabbit/spring-rabbit.xsd
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd">
+    <context:annotation-config/>
+    <context:component-scan base-package="cc.xpress.provider.impl.service"/>
+    <!--配置connection-factory，指定连接rabbit server参数 -->
+    <bean id="connectionFactory" class="org.springframework.amqp.rabbit.connection.CachingConnectionFactory">
+        <property name="host" value="120.79.27.230"/>
+        <property name="port" value="5672"/>
+        <property name="username" value="guest"/>
+        <property name="password" value="guest"/>
+    </bean>
+
+    <!-- 队列声明 -->
+    <rabbit:queue id="task_queue" name="task_queue" durable="true" auto-delete="false" exclusive="false">
+        <rabbit:queue-arguments>
+            <!--交换机-->
+            <entry key="x-dead-letter-exchange" value="trade_direct"/>
+            <!--过期未被消费则路由到该Queues上-->
+            <entry key="x-dead-letter-routing-key" value="delay_queue"/>
+        </rabbit:queue-arguments>
+    </rabbit:queue>
+    <!-- Queue Listener 监听器-->
+    <rabbit:listener-container connection-factory="connectionFactory" acknowledge="auto">
+        <rabbit:listener queues="task_queue" ref="queueListener"/>
+    </rabbit:listener-container>
+    <!-- ################ 延迟队列生产者配置 ################ -->
+    <!--json支持-->
+    <bean id="jsonMessageConverter" class="org.springframework.amqp.support.converter.Jackson2JsonMessageConverter" />
+    <!--通过指定下面的admin信息，当前producer中的exchange和queue会在rabbitmq服务器上自动生成 -->
+    <rabbit:admin connection-factory="connectionFactory"/>
+    <!--定义rabbit template用于数据的接收和发送 -->
+    <rabbit:template id="rabbitTemplate" connection-factory="connectionFactory" queue="delay_queue" exchange="trade_direct" message-converter="jsonMessageConverter"/>
+    <!--产生的消息会被放入该队列，失效后会路由到 task_queue-->
+    <rabbit:queue id="delay_queue" name="delay_queue" durable="true" auto-delete="false" exclusive="false">
+        <rabbit:queue-arguments>
+            <entry key="x-message-ttl" value="10000" value-type="java.lang.Long"/>
+            <entry key="x-dead-letter-exchange" value="trade_direct"/>
+            <entry key="x-dead-letter-routing-key" value="task_queue"/>
+        </rabbit:queue-arguments>
+    </rabbit:queue>
+
+    <!--交换机定义-->
+    <rabbit:direct-exchange name="trade_direct" durable="true" auto-delete="false" id="trade_direct">
+        <rabbit:bindings>
+            <!--任务处理队列，消费者队列-->
+            <rabbit:binding queue="task_queue" key="task_queue"/>
+            <!--任务生产队列，让消息失效，自动加入消费者队列-->
+            <rabbit:binding queue="delay_queue" key="delay_queue"/>
+        </rabbit:bindings>
+    </rabbit:direct-exchange>
+</beans>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+    ">
+    <!--IoC直接支持-->
+    <context:annotation-config/>
+    <!--扫包-->
+    <context:component-scan base-package="cc.xpress.service,cc.xpress.dao"/>
+    <!--导入hibernate配置-->
+    <import resource="classpath:spring-hibernate.xml"/>
+    <import resource="spring-redis.xml"/>
+
+</beans>

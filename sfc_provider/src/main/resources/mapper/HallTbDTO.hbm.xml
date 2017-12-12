@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="cc.xpress.bean.dto.HallTbDTO" table="hall_tb" schema="sfc_db">
+        <id name="hallId">
+            <column name="hall_id" sql-type="int(11)"/>
+            <generator class="native"/>
+        </id>
+        <property name="hallName">
+            <column name="hall_name" sql-type="varchar(100)" length="100"/>
+        </property>
+        <property name="hallScreenType">
+            <column name="hall_screen_type" sql-type="varchar(50)" length="50"/>
+        </property>
+        <property name="hallDescribe">
+            <column name="hall_describe" sql-type="varchar(100)" length="100"/>
+        </property>
+        <property name="hallMaxRow">
+            <column name="hall_max_row" sql-type="int(11)"/>
+        </property>
+        <property name="hallMaxCol">
+            <column name="hall_max_col" sql-type="int(11)"/>
+        </property>
+        <!--hall与cinema的关系有hall维护-->
+        <many-to-one name="cinemaTbDTO" class="cc.xpress.bean.dto.CinemaTbDTO" column="cinema_id" cascade="save-update"/>
+        <!--hall与plan的关系有plan维护-->
+        <set name="planTbDTOSet" table="plan_tb" order-by="plan_id" inverse="true">
+            <key column="hall_Id"/>
+            <one-to-many class="cc.xpress.bean.dto.PlanTbDTO"/>
+        </set>
+        <!--hall与seat的关系由seat维护-->
+        <set name="seatTbDTOSet" table="seat_tb" order-by="seat_id" cascade="save-update">
+            <key column="hall_Id"/>
+            <one-to-many class="cc.xpress.bean.dto.SeatTbDTO"/>
+        </set>
+    </class>
+</hibernate-mapping>

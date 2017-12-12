@@ -1,0 +1,562 @@
+.account_left ul li a {
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.source_tip {
+    position: relative;
+    float: left;
+    width: 200px;
+    z-index: auto;
+}
+
+.source_key {
+    display: none;
+    border: 1px solid #b9c1bd;
+    border-top: none;
+    width: 144px;
+    max-height: 144px;
+    position: absolute;
+    left: 0px;
+    top: 30px;
+    background-color: #fff;
+    z-index: 3;
+    overflow-y: auto;
+}
+
+.source_key label {
+    display: block;
+    line-height: 35px;
+    height: 35px;
+    padding-left: 15px;
+    border-bottom: 1px solid #ecf0f2;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.source_key label.current_select {
+    background-color: #ecf0f2;
+}
+
+.source_select {
+    float: left;
+    border: 1px solid #b9c1bd;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    height: 28px;
+    margin-right: 7px;
+}
+
+.source_select font {
+    width: 103px;
+    padding-left: 15px;
+    float: left;
+    height: 28px;
+    border: 0;
+    line-height: 28px;
+    font-size: 12px;
+    overflow: hidden;
+}
+
+.source_select p {
+    float: left;
+    background: url("../images/side_icon.png") no-repeat -352px -1018px;
+    width: 26px;
+    height: 26px;
+    margin-top: 1px;
+    color: #252525;
+}
+
+.cinema_select {
+    width: 180px;
+    height: 27px;
+    line-height: 27px;
+    padding-left: 5px;
+    border: 1px solid #e0e0e0;
+    float: left;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    background-color: #f3f3f3;
+}
+
+.pay_alipay {
+    float: left;
+    margin-right: 8px;
+    margin-top: 9px;
+    margin-left: 50px;
+}
+
+.pass_tit {
+    float: left;
+    margin-left: 16px;
+    margin-top: 16px;
+    color: #888282;
+}
+
+/* 个人资料头像裁剪样式 */
+.rel {
+    position: relative;
+}
+
+.abs {
+    position: absolute;
+}
+
+.fixed {
+    position: fixed;
+}
+
+.dn {
+    display: none;
+}
+
+.db {
+    display: block;
+}
+
+.dib {
+    display: inline-block;
+}
+
+.di {
+    display: inline;
+}
+
+.dot {
+    background: url("../images/zxx_dotted.gif") repeat-x 0 bottom;
+}
+
+.zxx_out_box {
+    margin-left: 115px;
+}
+
+.zxx_header {
+    padding: 10px 20px 5px;
+    border-bottom: 1px solid #cccccc;
+    overflow: hidden;
+    zoom: 1;
+}
+
+.zxx_author_time {
+    float: right;
+    margin-top: 34px;
+    color: #787878;
+    font-family: "Courier New", Courier, monospace;
+}
+
+.zxx_title {
+    font-size: 1.6em;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.zxx_test_list {
+    overflow: hidden;
+    zoom: 1;
+}
+
+.zxx_code {
+    display: block;
+    padding: 10px;
+    margin: 5px 0;
+    background: #eeeeee;
+    border: 1px dashed #cccccc;
+    clear: both;
+    zoom: 1;
+}
+
+.zxx_code xmp {
+    margin: 0;
+    color: #00F;
+    font-size: 12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.zxx_btn:hover {
+    text-decoration: none;
+    color: #34538b;
+}
+
+.zxx_ad_left {
+    position: absolute;
+    left: 10px;
+    top: 120px;
+    padding: 10px 6px;
+    background: white;
+}
+
+.zxx_ad_right {
+    position: absolute;
+    right: 10px;
+    top: 120px;
+    padding: 10px 6px;
+    background: white;
+}
+
+.zxx_ad_left.fixed, .zxx_ad_right.fixed {
+    position: fixed !important;
+    position: absolute;
+}
+
+.zxx_ad_fixed {
+    top: 5px;
+    position: fixed !important;
+    position: absolute;
+}
+
+.crop_preview {
+    position: absolute;
+    left: 409px;
+    top: 0;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+}
+
+.caijian {
+    width: 132px;
+    height: 26px;
+    line-height: 26px;
+    color: #1f1f1f;
+    font-size: 12px;
+    float: right;
+    overflow: hidden;
+}
+
+/* 支付弹出样式 */
+.pay_pop {
+    border: 3px solid #CCC;
+    width: 550px;
+    padding: 20px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -289px;
+    margin-top: -100px;
+    background-color: white;
+    z-index: 100000;
+    display: none;
+}
+
+.pay_pop .tit_hint {
+    border-bottom: 1px solid #CCC;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    color: #000;
+    font-size: 18px;
+}
+
+.pt_30 {
+    padding-top: 30px;
+}
+
+.pay_pop .pay_btn_gray {
+    background: #e4e4e4;
+    background: -moz-linear-gradient(top, #fff, #e4e4e4);
+    background: -webkit-linear-gradient(top, #fff, #e4e4e4);
+    background: -o-linear-gradient(top, #fff, #e4e4e4);
+    background: -ms-linear-gradient(top, #fff, #e4e4e4);
+    background: linear-gradient(to bottom, #fff, #e4e4e4);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    padding: 10px 20px;
+    margin: 0 5px;
+    color: #000;
+    display: inline-block;
+}
+
+/*首页活动样式*/
+.wrapper {
+    width: 800px;
+    float: left;
+}
+
+h1 {
+    height: 50px;
+    line-height: 50px;
+    font-size: 22px;
+    font-weight: normal;
+    font-family: "Microsoft YaHei", SimHei;
+    margin-bottom: 20px;
+}
+
+/* focus */
+#focus {
+    width: 786px;
+    height: 280px;
+    overflow: hidden;
+    position: relative;
+}
+
+#focus ul {
+    position: absolute;
+}
+
+#focus ul li {
+    float: left;
+    width: 786px;
+    height: 285px;
+    overflow: hidden;
+    position: relative;
+    background: #000;
+}
+
+#focus ul li div {
+    position: absolute;
+    overflow: hidden;
+}
+
+#focus .btnBg {
+    position: absolute;
+    height: 35px;
+    bottom: 0;
+}
+
+#focus .btn {
+    position: absolute;
+    width: 780px;
+    height: 10px;
+    padding: 5px 10px;
+    right: 0;
+    bottom: 0;
+    text-align: right;
+}
+
+#focus .btn span {
+    display: inline-block;
+    _display: inline;
+    _zoom: 1;
+    width: 25px;
+    height: 10px;
+    _font-size: 0;
+    margin-left: 5px;
+    cursor: pointer;
+    background: #fff;
+}
+
+#focus .btn span.on {
+    background: #fff;
+}
+
+#focus .preNext {
+    width: 45px;
+    height: 100px;
+    position: absolute;
+    top: 90px;
+    background: url("../images/sprite_a.png") no-repeat 0 0;
+    cursor: pointer;
+}
+
+#focus .pre {
+    left: 0;
+}
+
+#focus .next {
+    right: 0;
+    background-position: right top;
+}
+
+.notice_word {
+    line-height: 200%;
+    text-indent: 2em;
+}
+
+/* 首页轮播 */
+.firebugResetStyles {
+    z-index: 2147483646 !important;
+    top: 0 !important;
+    left: 0 !important;
+    display: block !important;
+    border: 0 none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    outline: 0 !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    position: fixed !important;
+    transform: rotate(0deg) !important;
+    transform-origin: 50% 50% !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background: transparent none !important;
+    pointer-events: none !important;
+    white-space: normal !important;
+}
+
+style.firebugResetStyles {
+    display: none !important;
+}
+
+.firebugBlockBackgroundColor {
+    background-color: transparent !important;
+}
+
+.firebugResetStyles:before, .firebugResetStyles:after {
+    content: "" !important;
+}
+
+/**actual styling to be modified by firebug theme**/
+.firebugCanvas {
+    display: none !important;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+.firebugLayoutBox {
+    width: auto !important;
+    position: static !important;
+}
+
+.firebugLayoutBoxOffset {
+    opacity: 0.8 !important;
+    position: fixed !important;
+}
+
+.firebugLayoutLine {
+    opacity: 0.4 !important;
+    background-color: #000000 !important;
+}
+
+.firebugLayoutLineLeft, .firebugLayoutLineRight {
+    width: 1px !important;
+    height: 100% !important;
+}
+
+.firebugLayoutLineTop, .firebugLayoutLineBottom {
+    width: 100% !important;
+    height: 1px !important;
+}
+
+.firebugLayoutLineTop {
+    margin-top: -1px !important;
+    border-top: 1px solid #999999 !important;
+}
+
+.firebugLayoutLineRight {
+    border-right: 1px solid #999999 !important;
+}
+
+.firebugLayoutLineBottom {
+    border-bottom: 1px solid #999999 !important;
+}
+
+.firebugLayoutLineLeft {
+    margin-left: -1px !important;
+    border-left: 1px solid #999999 !important;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+.firebugLayoutBoxParent {
+    border-top: 0 none !important;
+    border-right: 1px dashed #E00 !important;
+    border-bottom: 1px dashed #E00 !important;
+    border-left: 0 none !important;
+    position: fixed !important;
+    width: auto !important;
+}
+
+.firebugRuler {
+    position: absolute !important;
+}
+
+.overflowRulerX > .firebugRulerV {
+    left: 0 !important;
+}
+
+.overflowRulerY > .firebugRulerH {
+    top: 0 !important;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+.fbProxyElement {
+    position: fixed !important;
+    pointer-events: auto !important;
+}
+
+/* banner-box */
+.banner-box {
+    min-width: 1210px;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+}
+
+.banner-box .bd {
+    width: 100% !important;
+}
+
+.banner-box .bd li .m-width {
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.banner-box .bd li {
+    width: 100% !important;
+    height: 400px;
+}
+
+.banner-box .bd li a {
+    display: block;
+    background-size: auto;
+}
+
+.banner-box .bd li a img {
+    width: 100%
+}
+
+.banner-btn {
+    width: 1210px;
+    position: absolute;
+    top: 145px;
+    left: 50%;
+    margin-left: -605px;
+}
+
+.banner-btn a {
+    display: block;
+    width: 49px;
+    height: 104px;
+    position: absolute;
+    top: 0;
+    filter: alpha(opacity=40);
+    -moz-opacity: 0.4;
+    -khtml-opacity: 0.4;
+    opacity: 0.4;
+}
+
+.banner-btn a.prev {
+    left: 20px;
+    background: url(../images/foot.png) no-repeat 0 0;
+}
+
+.banner-btn a.next {
+    right: 20px;
+    background: url(../images/foot.png) no-repeat -49px 0;
+}
+
+.banner-box .hd {
+    position: absolute;
+    top: 210px;
+    left: 1000px;
+}
+
+.banner-box .hd ul li {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    text-indent: -9999px;
+    margin-right: 20px;
+    float: left;
+    cursor: pointer;
+    background: url(../images/banner_default.png) no-repeat 0 0;
+}
+
+.banner-box .hd ul li.on {
+    background: url(../images/banner_current.png) no-repeat 0 0;
+}

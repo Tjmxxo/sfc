@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="cc.xpress.bean.dto.MovieTbDTO" table="movie_tb" schema="sfc_db">
+        <id name="movieId">
+            <column name="movie_id" sql-type="int(11)"/>
+            <generator class="native"/>
+        </id>
+        <property name="movieName">
+            <column name="movie_name" sql-type="varchar(100)" length="100"/>
+        </property>
+        <property name="moviePlayTime">
+            <column name="movie_play_time" sql-type="int(11)"/>
+        </property>
+        <property name="moviePublishTime">
+            <column name="movie_publish_time" sql-type="datetime"/>
+        </property>
+        <property name="movieDirector">
+            <column name="movie_director" sql-type="varchar(100)" length="100"/>
+        </property>
+        <property name="movieCountry">
+            <column name="movie_country" sql-type="varchar(100)" length="100"/>
+        </property>
+        <property name="movieLanguage">
+            <column name="movie_language" sql-type="varchar(100)" length="100"/>
+        </property>
+        <property name="movieActor">
+            <column name="movie_actor" sql-type="text"/>
+        </property>
+        <property name="movieType">
+            <column name="movie_type" sql-type="varchar(100)" length="100"/>
+        </property>
+        <property name="moviePoster">
+            <column name="movie_poster" sql-type="varchar(200)" length="200"/>
+        </property>
+        <property name="minPrice">
+            <column name="min_price" sql-type="int(11)"/>
+        </property>
+        <property name="minVipPrice">
+            <column name="min_vip_price" sql-type="int(11)"/>
+        </property>
+        <!--movie与plan的关系由plan维护-->
+        <set name="planTbDTOSet" table="plan_tb" order-by="plan_id" inverse="true">
+            <key column="movie_id"/>
+            <one-to-many class="cc.xpress.bean.dto.PlanTbDTO"/>
+        </set>
+    </class>
+</hibernate-mapping>

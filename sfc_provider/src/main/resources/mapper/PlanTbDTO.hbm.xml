@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="cc.xpress.bean.dto.PlanTbDTO" table="plan_tb" schema="sfc_db">
+        <id name="planId">
+            <column name="plan_id" sql-type="int(11)"/>
+            <generator class="native"/>
+        </id>
+        <property name="planPrice">
+            <column name="plan_price" sql-type="int(11)"/>
+        </property>
+        <property name="planStartTime">
+            <column name="plan_start_time" sql-type="datetime"/>
+        </property>
+        <property name="planData">
+            <column name="plan_data" sql-type="date"/>
+        </property>
+        <property name="planTime">
+            <column name="plan_time" sql-type="time"/>
+        </property>
+        <property name="planLanguage">
+            <column name="plan_language" sql-type="varchar(50)" length="50"/>
+        </property>
+        <property name="planScreenType">
+            <column name="plan_screen_type" sql-type="varchar(50)" length="50"/>
+        </property>
+        <property name="planDiscount">
+            <column name="plan_discount" sql-type="int(11)"/>
+        </property>
+        <property name="planStatus">
+            <column name="plan_status" sql-type="int(11)"/>
+        </property>
+        <!--plan与hall的关系由hall维护-->
+        <many-to-one name="hallTbDTO" column="hall_id" class="cc.xpress.bean.dto.HallTbDTO" cascade="save-update"/>
+        <!--plan与movie的关系由plan维护-->
+        <many-to-one name="movieTbDTO" column="movie_id" class="cc.xpress.bean.dto.MovieTbDTO" cascade="save-update"/>
+        <many-to-one name="cityTbDTO" column="city_id" class="cc.xpress.bean.dto.CityTbDTO" cascade="save-update"/>
+        <many-to-one name="cinemaTbDTO" column="cinema_id" class="cc.xpress.bean.dto.CinemaTbDTO" cascade="save-update"/>
+        <!--plan与select的信息由plan维护-->
+        <set name="selectTbDTOSet" table="select_tb" order-by="select_id" cascade="save-update" inverse="false">
+            <key column="plan_id"/>
+            <one-to-many class="cc.xpress.bean.dto.SelectTbDTO"/>
+        </set>
+    </class>
+</hibernate-mapping>

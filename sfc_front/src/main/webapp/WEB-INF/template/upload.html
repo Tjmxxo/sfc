@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="javascript" src="../../js"></script>
+</head>
+<body>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script>
+    var fileUpload = $('file_upload');
+    $.ajax({
+        url: "/front/upload",
+        type: "POST",
+        data: fileUpload.serialize()
+    })
+</script>
+<input type="file" id="file_upload">
+</body>
+</html>

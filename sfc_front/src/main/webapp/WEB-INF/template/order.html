@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <link rel="stylesheet" type="text/css" href="../../css/sheet.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/other.css"/>
+    <link rel="stylesheet" type="text/css" href="../../js/dialog/easydialog.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/style.css"/>
+    <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+    <title>我的订单-上影影城</title>
+</head>
+
+<body class="address_area">
+<script type="text/javascript" src="../../js/dialog/easydialog.min.js"></script>
+<script type="text/javascript" src="../../js/script.js"></script>
+<script type="text/javascript" src="../../js/member.js"></script>
+<script type="text/javascript" src="../../js/sheet.js"></script>
+<script type="text/javascript" src="../../js/komovie.js"></script>
+<!--------- 顶部 -------------->
+<div class="page_box">
+    <div id="main">
+        <div class="account_content clearfix">
+            <div class="account_right fr">
+                <ul class="account_list member_order_list clearfix">
+                    <li class="account_current"><a href="/member/order?s=0" class="black">全部</a></li>
+                    <li><a href="/member/order?s=1" class="black">等待支付</a></li>
+                    <li><a href="/member/order?s=5" class="black">已取消/过期</a></li>
+                    <li><a href="/member/order?s=4" class="black">已完成</a></li>
+                </ul>
+                <div class="movie_list ">
+                    <div class="movie_show clearfix" style="display:none">
+                        <span>显示</span>
+                        <select name="" id="monthSelect" onchange="monthSelect();">
+                            <option value="0">全部</option>
+                            <option value="3">3个月内</option>
+                            <option value="2">2个月内</option>
+                            <option value="1">1个月内</option>
+                        </select>
+                        <span>的订单记录</span>
+                    </div>
+                    <ul class="movie_title clearfix">
+                        <li class="movie_order">电影票订单信息</li>
+                        <li class="movie_time">购买时间</li>
+                        <li class="movie_status">订单状态</li>
+                        <li class="movie_money">金额</li>
+                        <li class="movie_operate">操作</li>
+                    </ul>
+                    <div id="monthSelectData" style="height:80%;overflow-y:auto;overflow-x:hidden;">
+                        <ul class="movie_content">
+                            <li class="movie_order">
+                                <div class="movie_information clearfix">
+                                    <a href="javascript:void(0)" onclick="showDetail('a1512442053321886858')"
+                                       class="movie_picture"><img
+                                            src="http://audio.komovie.cn/sns/2017/10/24/96789839896102156148.jpg"
+                                            width="73px" height="110px" alt=""/></a>
+                                    <dl>
+                                        <dt><a href="javascript:void(0)" onclick="showDetail('a1512442053321886858')">寻梦环游记</a>
+                                        </dt>
+                                        <dd>订单编号：a201712051047331764376</dd>
+                                        <dd>观影时间：2017-12-05 11:40:00</dd>
+                                        <dd>影城：SFC上海影城</dd>
+                                        <dd class="order_seat">座位：1排5座</dd>
+                                    </dl>
+                                </div>
+                            </li>
+                            <li class="movie_time">
+                                <span>2017-12-05<br/>10:47:33</span>
+                            </li>
+                            <li class="movie_status">
+                                <span class="movie_coin">生成订单</span>
+                            </li>
+                            <li class="movie_money">
+                                <span class="movie_coin clearfix"><span>￥55.00</span><font></font></span>
+                            </li>
+                            <li class="movie_operate">
+                                <span><a href="javascript:void(0)"
+                                         onclick="cancelOrder('a1512442053321886858')">取消订单</a></span><a
+                                    href="/order/pay/order_id/a1512442053321886858" class="movie_pay">立即支付</a></li>
+                        </ul>
+                        <div class="order_content hidden" id="hid_detail_a1512442053321886858">
+                            <div class="order_title">
+                                <span onclick="hideDetail()"></span>
+                                编号为 a201712051047331764376 的订单详情
+                            </div>
+                            <div class="order_tip clearfix">
+                                <a href="#" class="order_picture"><img
+                                        src="http://audio.komovie.cn/sns/2017/10/24/96789839896102156148.jpg"
+                                        width="271px" height="405px" alt=""/></a>
+                                <div class="order_list">
+                                    <p class="order_word"><strong>￥55.00 </strong> 生成订单</p>
+                                    <a href="#" class="order_key">寻梦环游记</a>
+                                    <ul>
+                                        <li>订单编号：a201712051047331764376</li>
+                                        <li>影城：SFC上海影城</li>
+                                        <li>场次：2017-12-05 11:40:00</li>
+                                        <li>座位：1排5座</li>
+                                        <li class="mt_25">下单时间：2017-12-05 10:47:33</li>
+                                        <li>支付时间：--</li>
+                                        <li>付款方式：--</li>
+                                        <li>取票手机：15068762959</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <img class="ko_loading" src="/images/loading.gif">
+            <script type="text/javascript">
+                function showDetail(id) {
+                    jQuery('#hid_detail_' + id).show();
+                    jQuery('.page_color').show();
+                }
+
+                function hideDetail() {
+                    jQuery('.order_content').hide();
+                    jQuery('.page_color').hide();
+                }
+
+                //取消订单
+                function cancelOrder(orderId) {
+                    $.ajax({
+                        url: '/database/cancelorder',
+                        data: {order_id: orderId},
+                        success: function (data) {
+                            if (data['status'] == 0) {
+                                showEasyMsg('成功取消订单');
+                                location.href = '/member/order';
+                            } else {
+                                showEasyMsg(data['error']);
+                            }
+                        }
+                    });
+                }
+
+                //按照月份查询订单
+                var allData = $("#monthSelectData").html();
+
+                function monthSelect() {
+                    if ($("#monthSelect").val() > 0) {
+                        var month = $("#monthSelect").val();
+                        $.ajax({
+                            url: '/member/monthSelect',
+                            data: {month: month},
+                            success: function (data) {
+                                $("#monthSelectData").html(data);
+                            }
+                        });
+                    } else {
+                        $("#monthSelectData").html(allData);
+                    }
+                }
+            </script>
+        </div>
+    </div>
+</div>
+<img src="../../images/loading.gif" class="ko_loading"/>
+</body>
+</html>
+<script>
+    $(function () {
+        $(".account_left ul a[tag=1]").css({"font-size": "14px", "font-weight": "bold"});
+    })
+</script>

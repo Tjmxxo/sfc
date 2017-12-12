@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--配置连接池-->
+    <bean id="poolConfig" class="redis.clients.jedis.JedisPoolConfig"/>
+    <!--配置数据源-->
+    <bean id="jedisConn1" class="redis.clients.jedis.JedisShardInfo">
+        <constructor-arg name="host" value="192.168.167.3"/>
+        <constructor-arg name="port" value="6379"/>
+        <property name="password" value="8286565161"/>
+    </bean>
+    <!--配置数据源-->
+    <bean id="jedisConn2" class="redis.clients.jedis.JedisShardInfo">
+        <constructor-arg name="host" value="120.79.27.230"/>
+        <constructor-arg name="port" value="6379"/>
+        <property name="password" value="redislg123456"/>
+    </bean>
+    <bean id="shardedJedisPool" class="redis.clients.jedis.ShardedJedisPool">
+        <constructor-arg name="poolConfig" ref="poolConfig"/>
+        <constructor-arg name="shards">
+            <list>
+                <ref bean="jedisConn1"/>
+                <ref bean="jedisConn2"/>
+            </list>
+        </constructor-arg>
+    </bean>
+</beans>

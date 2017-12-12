@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="cc.xpress.bean.dto.UserTbDTO" table="user_tb" schema="sfc_db">
+        <id name="userId">
+            <column name="user_id" sql-type="int(11)"/>
+            <generator class="native"/>
+        </id>
+        <property name="userAccount">
+            <column name="user_account" sql-type="varchar(100)" length="100"/>
+        </property>
+        <property name="userPassword">
+            <column name="user_password" sql-type="varchar(32)" length="32"/>
+        </property>
+        <property name="userSalt">
+            <column name="user_salt" sql-type="varchar(32)" length="32"/>
+        </property>
+        <property name="userEmail">
+            <column name="user_email" sql-type="varchar(20)" length="20"/>
+        </property>
+        <property name="userTel">
+            <column name="user_tel" sql-type="varchar(11)" length="11"/>
+        </property>
+        <property name="userImg">
+            <column name="user_img" sql-type="varchar(200)" length="200"/>
+        </property>
+        <property name="userStatus">
+            <column name="user_status" sql-type="int(11)"/>
+        </property>
+        <set name="roleTbDTOSet" table="user_role_tb" lazy="false" cascade="save-update" order-by="ur_user_id">
+            <key column="ur_user_id"/>
+            <many-to-many column="ur_role_id" class="cc.xpress.bean.dto.RoleTbDTO"/>
+        </set>
+        <!--双向维护-->
+        <set name="couponTbDTOSet" table="coupon_tb" order-by="coupon_id" cascade="save-update">
+            <key column="user_id"/>
+            <one-to-many class="cc.xpress.bean.dto.CouponTbDTO"/>
+        </set>
+        <!--双向维护-->
+        <set name="vipTbDTOSet" table="vip_tb" order-by="vip_id" cascade="save-update">
+            <key column="user_id"/>
+            <one-to-many class="cc.xpress.bean.dto.VipTbDTO"/>
+        </set>
+        <!--user和order的关系由order维护-->
+        <set name="orderTbDTOSet" table="order_tb" order-by="order_id" inverse="true">
+            <key column="user_id"/>
+            <one-to-many class="cc.xpress.bean.dto.OrderTbDTO"/>
+        </set>
+        <!--user和cinema的关系由user维护-->
+        <many-to-one name="cinemaTbDTO" column="cinema_id" cascade="save-update" class="cc.xpress.bean.dto.CinemaTbDTO"/>
+    </class>
+</hibernate-mapping>

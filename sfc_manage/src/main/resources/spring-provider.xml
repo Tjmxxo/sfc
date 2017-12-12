@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo" xmlns:context="http://www.springframework.org/schema/context" xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--配置dubbo的消费者-->
+    <context:component-scan base-package="cc.xpress.service,cc.xpress.contorller,cc.xpress.shiro"/>
+    <import resource="classpath:spring-servlet.xml"/>
+    <import resource="classpath:spring-shiro.xml"/>
+    <dubbo:application name="dubbo-tick"/>
+    <dubbo:registry address="zookeeper://localhost:2181"/>
+    <!--<dubbo:registry address="zookeeper://192.168.56.147:2181"/>-->
+    <!--<dubbo:registry address="zookeeper://192.168.54.88:2181"/>-->
+    <dubbo:reference interface="cc.xpress.service.ICinemaService" id="cinemaService1"/>
+    <dubbo:reference interface="cc.xpress.service.IPlanService" id="planService1"/>
+    <dubbo:reference interface="cc.xpress.service.IUserService" id="userService1"/>
+    <dubbo:reference interface="cc.xpress.service.ICinemaChangeImpl" id="CinemaChange1"/>
+    <dubbo:reference interface="cc.xpress.service.IVipService" id="vipService1"/>
+    <dubbo:reference interface="cc.xpress.service.IHallService" id="hallService1"/>
+    <dubbo:reference interface="cc.xpress.service.IPlanTimerService" id="planTimerServie1"/>
+    <dubbo:reference interface="cc.xpress.service.IMovieService" id="movieService1"/>
+    <dubbo:reference interface="cc.xpress.service.IOrderService" id="orderService1"/>
+    <dubbo:reference interface="cc.xpress.service.ISeatService" id="seatService1"/>
+    <dubbo:reference interface="cc.xpress.service.IUserCountService" id="userCountService1"/>
+    <dubbo:reference interface="cc.xpress.service.IUrgencyService" id="urgencyService1"/>
+    <dubbo:reference interface="cc.xpress.service.ICityService" id="cityService1"/>
+</beans>

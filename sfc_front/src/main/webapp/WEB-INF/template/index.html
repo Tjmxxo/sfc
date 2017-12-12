@@ -1,0 +1,456 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <link rel="stylesheet" type="text/css" href="../../css/sheet.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/other.css"/>
+    <link rel="stylesheet" type="text/css" href="../../js/dialog/easydialog.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/style.css"/>
+    <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+    <title>上影影城 - 首页</title>
+</head>
+
+<body class="address_area">
+<script type="text/javascript" src="../../js/dialog/easydialog.min.js"></script>
+<script type="text/javascript" src="../../js/script.js"></script>
+<script type="text/javascript" src="../../js/index.js"></script>
+<script type="text/javascript" src="../../js/sheet.js"></script>
+<script type="text/javascript" src="../../js/superslide.2.1.js"></script>
+
+<!--------- 顶部 -------------->
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(window).resize(function () {
+            var width = $(window).width();
+            var size = 1920 / 400;
+            var height = width / size;		// 总体高度
+            var top = height / 2 - ((height / 2) / 4 + 5);			// 按钮居顶高度
+            jQuery('#banner_play').css('width', width);
+            jQuery('.banner-box').css('height', height);
+            jQuery('.banner-btn').css('top', top);
+        });
+
+        $(".prev,.next").hover(function () {
+            $(this).stop(true, false).fadeTo("show", 0.9);
+        }, function () {
+            $(this).stop(true, false).fadeTo("show", 0.4);
+        });
+
+        $(".banner-box").slide({
+            titCell: ".hd ul",
+            mainCell: ".bd ul",
+            effect: "fold",
+            interTime: 3500,
+            delayTime: 500,
+            autoPlay: true,
+            autoPage: true,
+            trigger: "click"
+        });
+
+        var width = $(window).width();
+        var size = 1920 / 400;
+        var height = width / size;		// 总体高度
+        var top = height / 2 - ((height / 2) / 4 + 5);			// 按钮居顶高度
+        jQuery('#banner_play').css('width', width);
+        jQuery('.banner-box').css('height', height);
+        jQuery('.banner-btn').css('top', top);
+
+    });
+</script>
+<div class="banner-box">
+    <div class="bd">
+        <ul id="banner_play" style="position: relative; width: 100%; height: 360px;">
+            <li style=" position: absolute; width: 1920px; left: 0px; top: 0px; display: none;">
+                <div class="m-width">
+                    <a href="http://mp.weixin.qq.com/s/utbMeyO4VRfg8txmp9rF-A"><img
+                            src="http://file.komovie.cn/yingguan/picture/201708/20170810/15023345609736.jpg"></a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="banner-btn">
+        <a class="prev" href="javascript:void(0);"></a>
+        <a style="opacity: 0.4;" class="next" href="javascript:void(0);"></a>
+        <div class="hd">
+            <ul>
+                <li class="">0</li>
+
+                <li class="">1</li>
+
+                <li class="">2</li>
+
+                <li class="">3</li>
+
+                <li class="">4</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="select_time">
+    <div class="wrap">
+        <div class="quick_buy clearfix">
+            <div class="select_content_time">
+                <div class="select_input clearfix">
+                    <span></span>
+                    <input type="text" readOnly="readOnly" id="movie_id_input" value="请选择影片">
+                    <p id="movie_id"></p>
+                </div>
+                <div class="qui_search_drop" id="movie_div">
+                    <div class="qui_search_drop_list">
+                        <ul>
+                            <li><a href="javascript:void(0)" onclick="movieSelect(this)" mid="100556"
+                                   title="精灵宝可梦：波尔凯尼恩与机巧的玛机雅娜">精灵宝可梦：波尔凯尼恩与机巧的玛机雅娜</a></li>
+                            <li><a href="javascript:void(0)" onclick="movieSelect(this)" mid="100914" title="恐袭波士顿">恐袭波士顿</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="select_content_time">
+                <div class="select_input clearfix">
+                    <span></span>
+                    <input type="text" readOnly="readOnly" id="cinema_id_input" value="请选择影院">
+                    <p id="cinema_id"></p>
+                </div>
+                <div class="qui_search_drop" id="cinema_div">
+                    <div class="qui_search_drop_list">
+                        <ul id="cinema_ul">
+                            <li><a>请先选择影片</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="select_content_time">
+                <div class="select_input clearfix">
+                    <span></span>
+                    <input type="text" readOnly="readOnly" id="date_id_input" value="请选日期" class="width_125">
+                    <p id="date_id"></p>
+                </div>
+                <div class="qui_search_drop width_180" id="date_div">
+                    <div class="qui_search_drop_list">
+                        <ul id="date_ul">
+                            <li><a>请先选择影院</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="select_content_time">
+                <div class="select_input clearfix">
+                    <span></span>
+                    <input type="text" readOnly="readOnly" id="plan_id_input" value="请选择时间" class="width_125">
+                    <p id="plan_id"></p>
+                </div>
+                <div class="qui_search_drop width_180" id="plan_div">
+                    <div class="qui_search_drop_list">
+                        <ul id="plan_ul">
+                            <li><a>请选日期</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <input type="hidden" id="hid_movie_id">
+            <input type="hidden" id="hid_cinema_id">
+            <input type="hidden" id="hid_plan_id">
+            <input type="hidden" id="hid_date_id">
+            <a class="qui_search_item_buttom" href="javascript:void(0)" id="buy_button">立即购票</a>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div><!-- part one -->
+</div>
+<div class="movie_content_box">
+    <div id="main" class="pt_30">
+        <div class="wrap clearfix">
+            <div class="movie_left fl">
+                <div class="nav_key" id="nav_title">
+                    <span class="title_line"></span>
+                    <font class="title_hot_current" onclick="selectTag('tagContent0',this)">正在热映</font>
+                    <span class="title_line_left">|</span>
+                    <font onclick="selectTag('tagContent1',this)">即将上映</font>
+                </div>
+                <!-- 正在热映 -->
+                <div class="movie_once_hot" id="tagContent0">
+                    <div class="word_tip clearfix " id="movie_div_page_1">
+                        <div class="word_icon fr">
+                            <span>1/2</span>
+                            <a href="javascript:void(0)" class="left_icon"><img src="../../images/left_icon.png" alt=""></a><a
+                                href="javascript:void(0)" onclick="chang_movie(2,'max')" class="right_icon_current"><img
+                                src="../../images/right_icon_current.png" alt=""></a></div>
+                        <span class="word_content">共有<font>26</font>部影片正在热映</span>
+                    </div>
+                    <div class="show_bg hot_movie_list clearfix " id="movie_div_1">
+                        <div class="f_show_grid_bg left">
+                            <ul>
+                                <li>
+                                    <div class="show_cell_list left ">
+                                        <ul>
+                                            <li class="position_r">
+                                                <div class="index_layer_like hidden" id="index_layer_one_101330">喜欢+1
+                                                </div>
+                                                <div class="show_cell position_r">
+                                                    <a href="movie/detail/101330"><img
+                                                            src="https://img.komovie.cn/poster/big/15101932296488.jpg"
+                                                            id="movie_img_101330" width="220px" height="300px"/></a>
+                                                    <div class="f_titl clearfix" id="movie_end_101330">
+                                                        <a href="site/choose/101330" class="left title_word">烟花</a>
+                                                        <div class="show_ticket right"><span>￥40</span>&nbsp;元起</div>
+                                                    </div>
+                                                    <div class="movie_buy clearfix">
+                                                        <a href="movie/detail/101330" class="will_show fl"></a>
+                                                        <a href="site/choose/101330" class="movie_button fr">选座购票</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="clear"></div>
+                                </li>
+                                <div class="clear"></div>
+                            </ul>
+                        </div>
+                    </div><!--- show --->
+
+                    <div class="word_tip clearfix none" id="movie_div_page_2">
+                        <div class="word_icon fr">
+                            <span>2/2</span>
+                            <a href="javascript:void(0)" onclick="chang_movie(1,'min')" class="left_icon_current"><img
+                                    src="../../images/left_icon_current.png" alt=""></a><a href="javascript:void(0)"
+                                                                                           onclick="chang_movie(2,'max')"
+                                                                                           class="right_icon_current"><img
+                                src="../../images/right_icon_current.png" alt=""></a></div>
+                        <span class="word_content">共有<font>26</font>部影片正在热映</span>
+                    </div>
+                    <div class="show_bg hot_movie_list clearfix none" id="movie_div_2">
+                        <div class="f_show_grid_bg left">
+                            <ul>
+                                <li>
+                                    <div class="show_cell_list left ">
+                                        <ul>
+                                            <li class="position_r">
+                                                <div class="index_layer_like hidden" id="index_layer_one_100245">喜欢+1
+                                                </div>
+                                                <div class="show_cell position_r">
+                                                    <a href="movie/detail/100245"><img
+                                                            src="http://audio.komovie.cn/sns/2017/10/17/86496083920025386783.jpg"
+                                                            id="movie_img_100245" width="220px" height="300px"/></a>
+                                                    <div class="f_titl clearfix" id="movie_end_100245">
+                                                        <a href="site/choose/100245" class="left title_word">垫底联盟</a>
+                                                        <div class="show_ticket right"><span>￥40</span>&nbsp;元起</div>
+                                                    </div>
+                                                    <div class="movie_buy clearfix">
+                                                        <a href="movie/detail/100245" class="will_show fl"></a>
+                                                        <a href="site/choose/100245" class="movie_button fr">选座购票</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="clear"></div>
+                                </li>
+                                <div class="clear"></div>
+                            </ul>
+                        </div>
+                    </div><!--- show --->
+                </div>
+                <!-- 即将上映 -->
+                <div class="movie_once_hot" style="display: none;" id="tagContent1">
+                    <div class="word_tip clearfix " id="movie_soon_div_page_1">
+                        <div class="word_icon fr">
+                            <span>1/2</span>
+                            <a href="javascript:void(0)" class="left_icon"><img src="../../images/left_icon.png" alt=""></a><a
+                                href="javascript:void(0)" onclick="chang_movie_soon(2,'max')"
+                                class="right_icon_current"><img src="../../images/right_icon_current.png" alt=""></a></div>
+                        <span class="word_content">共有<font>56</font>部影片即将上映</span>
+                    </div>
+                    <div class="show_bg hot_movie_list clearfix " id="movie_soon_div_1">
+                        <div class="f_show_grid_bg left">
+                            <ul>
+                                <li>
+                                    <div class="show_cell_list left ">
+                                        <ul>
+                                            <li class="position_r">
+                                                <div class="index_layer_like hidden" id="index_layer_one_99153">喜欢+1
+                                                </div>
+                                                <div class="show_cell position_r">
+                                                    <a href="#"><img
+                                                            src="https://img.komovie.cn/poster/big/14992453513158.jpg"
+                                                            id="movie_img_99153" width="220px" height="300px"/></a>
+                                                    <div class="f_titl clearfix center" id="movie_end_99153">
+                                                        <a href="#" class="title_word_soon">左眼阴阳</a>
+                                                        <!-- <div class="show_ticket right"><span>￥</span>&nbsp;元起</div> -->
+                                                    </div>
+                                                    <div class="movie_buy clearfix">
+                                                        <a href="#" class="will_show fl"></a>
+                                                        <a href="#"
+                                                           class="movie_button fr">查看详情</a>
+                                                    </div>
+                                                    <div class="movie_once_go">01/01<br/>上映</div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="clear"></div>
+                                </li>
+                                <div class="clear"></div>
+                            </ul>
+                        </div>
+                    </div><!--- show --->
+
+                    <div class="word_tip clearfix none" id="movie_soon_div_page_2">
+                        <div class="word_icon fr">
+                            <span>2/2</span>
+                            <a href="javascript:void(0)" onclick="chang_movie_soon(1,'min')"
+                               class="left_icon_current"><img src="../../images/left_icon_current.png" alt=""></a><a
+                                href="javascript:void(0)" onclick="chang_movie_soon(2,'max')"
+                                class="right_icon_current"><img src="../../images/right_icon_current.png" alt=""></a></div>
+                        <span class="word_content">共有<font>2</font>部影片即将上映</span>
+                    </div>
+                    <div class="show_bg hot_movie_list clearfix none" id="movie_soon_div_2">
+                        <div class="f_show_grid_bg left">
+                            <ul>
+                                <li>
+                                    <div class="show_cell_list left ">
+                                        <ul>
+                                            <li class="position_r">
+                                                <div class="index_layer_like hidden" id="index_layer_one_94862">喜欢+1
+                                                </div>
+                                                <div class="show_cell position_r">
+                                                    <a href="movie/beondetail/94862"><img
+                                                            src="https://img.komovie.cn/poster/big/15052017495043.jpg"
+                                                            id="movie_img_94862" width="220px" height="300px"/></a>
+                                                    <div class="f_titl clearfix center" id="movie_end_94862">
+                                                        <a href="site/choose/" class="title_word_soon">断片之险途夺宝</a>
+                                                        <!-- <div class="show_ticket right"><span>￥</span>&nbsp;元起</div> -->
+                                                    </div>
+                                                    <div class="movie_buy clearfix">
+                                                        <a href="movie/beondetail/94862" class="will_show fl"></a>
+                                                        <a href="movie/beondetail/94862"
+                                                           class="movie_button fr">查看详情</a>
+                                                    </div>
+                                                    <div class="movie_once_go">12/29<br/>上映</div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="clear"></div>
+                                </li>
+                                <div class="clear"></div>
+                            </ul>
+                        </div>
+                    </div><!--- show --->
+                </div>
+            </div>
+            <div class="movie_right fr">
+                <div class="movie_download">
+                    <div class="movie_number">
+                        <img src="../../images/download_number.png">
+                        <span>扫一扫免费下载</span>
+                    </div>
+                </div>
+                <div class="movie_pay_content">
+                    <ul class="movie_pay_index">
+                        <li class="movie_one">
+                            <span>上影电影<br/>支付宝服务窗</span>
+                            <img src="../../images/login_service_alipay.png">
+                        </li>
+                        <li>
+                            <span class="movie_out">上影电影<br/>微信服务窗</span>
+                            <img src="../../images/login_number.png">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="poster_banner"><a href="" target="_blank"><img
+                src="http://file.komovie.cn/yingguan/picture/201710/20171023/15087429473015.jpg" width="1200px"
+                height="118px" alt=""></a></div>
+        <div class="activity_area">
+            <div class="nav_key width_1200">
+                <span class="title_line"></span>
+                <font>网站资讯</font>
+            </div>
+            <div class="activity_picture clearfix">
+                <div class="movie_tip"
+                     style="width: 550px;float: left;margin: 0 11px 10px 11px;border: 1px solid #e5e5e5;padding: 3px;">
+                    <p class="station_title">
+                        <span class="fr">更新时间：2016-02-16 13:15:11</span>
+                        <a href="activity/detail/53" target="_blank" style="width: 340px;">
+                            来关注我们的微信吧 </a>
+                    </p>
+                    <div class="movie_layer clearfix">
+                        <a href="activity/detail/53" target="_blank" class="movie_pic fl"><img
+                                src="http://file.komovie.cn/yingguan/picture/201602/20160216/14556019546268.jpg" alt=""></a>
+                        <div class="movie_word fr" style="width: 300px;">
+                            <p>扫二维码，关注我们的微信。了解影讯，购票，排片。还可以赢奖品哦！</p>
+                            <div class="movie_detail clearfix">
+                                <a href="activity/detail/53" target="_blank" class="movie_see fr">查看全文</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    function likes(obj, mid, type) {
+        $.ajax({
+            url: "movie/movielike",
+            data: {film_id: mid},
+            success: function (data) {
+            }
+        });
+        var cs = 'layer_like_left_35';
+        if (type == 1) {
+            $("#index_layer_one_" + mid).addClass(cs).css("left", "102px").fadeIn().removeClass("hidden").html("喜欢+1");
+            $(obj).addClass("background-position").attr({onclick: 'likeds(this,' + mid + ',' + type + ')'})
+
+        } else if (type == 2) {
+            $("#index_layer_one_" + mid).addClass(cs).css("left", "59px").fadeIn().removeClass("hidden").html("喜欢+1");
+            $(obj).addClass("background-position").attr({onclick: 'likeds(this,' + mid + ',' + type + ')'})
+        } else if (type == 3) {
+            $("#index_layer_one_" + mid).addClass(cs).css("left", "47px").fadeIn().removeClass("hidden").html("喜欢+1");
+            $(obj).addClass("background-position").attr({onclick: 'likeds(this,' + mid + ',' + type + ')'})
+        }
+        setCookie('xingmei', mid);
+        $("#index_layer_one_" + mid).fadeOut({duration: 1000});
+    }
+
+    function likeds(obj, mid, type) {
+        var cs = 'layer_like_left_35';
+        if (type == 1) {
+            $("#index_layer_one_" + mid).addClass(cs).css("left", "75px").fadeIn().removeClass("hidden").html("您已经喜欢过了");
+        } else if (type == 2) {
+            $("#index_layer_one_" + mid).addClass(cs).css("left", "32px").fadeIn().removeClass("hidden").html("您已经喜欢过了");
+        } else if (type == 3) {
+            $("#index_layer_one_" + mid).addClass(cs).css("left", "20px").fadeIn().removeClass("hidden").html("您已经喜欢过了");
+        }
+        $("#index_layer_one_" + mid).fadeOut({duration: 1000});
+    }
+
+    //写cookies
+    function setCookie(name, value) {
+        var value = getCookie(name) + "," + value;
+        var Days = 30;
+        var exp = new Date();
+        exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
+        document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString() + ";path=/";
+    }
+
+    //获取cookie
+    function getCookie(c_name) {
+        var s = '';
+        if (document.cookie.length > 0) {
+            var array = document.cookie.split(';');
+            for (var i = 0; i < array.length; i++) {
+                c_start = array[i].indexOf(c_name);
+                if (c_start != -1) {
+                    str = array[i].split('=');
+                    s = unescape(str[1]);
+                }
+            }
+        }
+        return s;
+    }
+</script>
+

@@ -1,0 +1,386 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <link rel="stylesheet" type="text/css" href="../../css/sheet.css"/>
+    <link rel="stylesheet" type="text/css" href="../../js/dialog/easydialog.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/photoShow.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/style.css"/>
+    <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+    <title>影片详情-上影影城</title>
+</head>
+<body class="address_area">
+<script type="text/javascript" src="../../js/dialog/easydialog.min.js"></script>
+<script type="text/javascript" src="../../js/script.js"></script>
+<script type="text/javascript" src="../../js/movie.js"></script>
+<script type="text/javascript" src="../../js/sheet.js"></script>
+<script type="text/javascript" src="../../js/movie_gal.js"></script>
+<script type="text/javascript" src="../../js/photoShow.js"></script>
+<div class="page_box">
+    <div class="detail_banner"><a> <img src="../../images/detail_banner.jpg" alt=""></a></div>
+    <div class="detail_content clearfix mb_150">
+        <div class="detail_name">
+            <div class="detail_title clearfix">
+                <div class="detail_key fl">寻梦环游记</div>
+            </div>
+            <div class="detail_information clearfix">
+                <div class="index_layer_like_detail hidden" id="index_layer_one_">喜欢+1</div>
+                <a href="#" class="detail_picture"><img
+                        src="http://audio.komovie.cn/sns/2017/10/24/96789839896102156148.jpg" alt=""></a>
+                <div class="detail_up">
+                    <dl class="detail_story">
+                        <dt>2017-11-24 上映</dt>
+                        <dd>导演：李·昂克里奇 / 阿德里安·莫利纳</dd>
+                        <dd>主演：爱德华·詹姆斯·奥莫斯 / 阿兰纳·乌巴奇 / 本杰明·布拉特 / 盖尔·加西亚·贝纳尔 / 加布里埃尔·伊格莱西亚斯 / 切奇·马林 / 海梅·卡米尔 / 阿方索·阿雷奥 /
+                            隆巴多·博伊尔 / 安东尼·冈萨雷斯 / 蕾妮·维克多 / 路易斯·瓦尔德斯 / Sofía Espinosa / Selene Luna / Blanca Araceli
+                        </dd>
+                        <dd> 类型：动画 / 音乐 / 冒险</dd>
+                        <dd>地区：</dd>
+                        <dd>片长：分钟</dd>
+                        <dd>语言：</dd>
+                    </dl>
+                    <ul class="detail_bar clearfix" id="detail_bar">
+                        <li class="bar_current ml_30">剧照</li>
+                        <!--<li>预告片</li>-->
+                    </ul>
+                    <input type="hidden" id="hid_movie_id" value="101310"/>
+                    <input type="hidden" id="selectCinema" value=""/>
+                    <input type="hidden" id="hid_cinema_id"/>
+                    <input type="hidden" id="hid_date_id"/>
+                    <input type="hidden" id="hid_photo_url"/>
+                    <div class="detail_scroll clearfix">
+                        <span class="scroll_left fl"></span>
+                        <div class="scroll_middle fl">
+                            <ul class="scroll_content clearfix">
+                            </ul>
+                        </div>
+                        <script type="text/javascript">
+                            jQuery('.scroll_content li').QQPhoto({
+                                url: 'movie/GetGallerys?id=101310',
+                                fix: 5,                           //表示相册列表左右间距的距离                 默认 5
+                                minTextLen: 3,                    //发送评论时 表单验证，最少不能少于的字符    默认三个字符
+                                maxTextLen: 140,                  //发送评论时 表单验证，最多不能少于的字符    默认140个字符
+                                fadeIn: true,                     //图片默认是否开启淡入效果，默认为 false
+                                lazyload: 'images/lazyload.gif',   //默认lazyload的图片，默认为1px.gif 透明图片
+                                loadding: 'images/loading.gif'    //loading.gif 的文件路径
+                            });
+                        </script>
+                        <span class="scroll_right fl"></span>
+                    </div>
+                    <div class="detail_scroll clearfix hidden">
+                        <span style="border: 1px solid #CCC;padding: 10px;margin: 0 10px 10px 10px;float: left;">操作成功</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="detail_introduce clearfix">
+            <div class="detail_left fl">
+                <div class="detail_pay">
+                    <div class="detail_menu clearfix">
+                        <ul id="detail_list">
+                            <li class="menu_current">排期购票</li>
+                            <li>剧情介绍</li>
+                        </ul>
+                        <div class="detail_price">
+
+                            <p>上海市5家上影国际影城 <strong>40</strong>元起</p>
+                        </div>
+                    </div>
+                    <div class="detail_take">
+                        <div class="detail_caption"><strong>片名：寻梦环游记</strong>片长：分钟</div>
+                        <div class="detail_date clearfix">
+                            <p>选择时间：</p>
+                            <ul id="plan_date">
+                                <li time="2017-12-07" onclick="choosePlanDateDetail(this)"
+                                    class="date_current plan_one">今天 | 12月07日
+                                </li>
+                                <li time="2017-12-08" onclick="choosePlanDateDetail(this)" class="">明天 | 12月08日</li>
+                                <li time="2017-12-09" onclick="choosePlanDateDetail(this)" class="">周六 | 12月09日</li>
+                                <li time="2017-12-10" onclick="choosePlanDateDetail(this)" class="">周日 | 12月10日</li>
+                                <li time="2017-12-12" onclick="choosePlanDateDetail(this)" class="">周二 | 12月12日</li>
+                            </ul>
+                        </div>
+                        <div class="detail_date clearfix">
+                            <p>选择影院：</p>
+                            <ul class="fl" id="cinema_list">
+                                <li cid="31081501" onclick="chooseCinemaDetail(this,'')"
+                                    class="date_current cinema_one">SFC上海影城
+                                </li>
+                                <li cid="31113501" onclick="chooseCinemaDetail(this,'')" class="">SFC上影影城（七宝店）</li>
+                                <li cid="31124501" onclick="chooseCinemaDetail(this,'')" class="">SFC上影影城（世博店）</li>
+                                <li cid="31125001" onclick="chooseCinemaDetail(this,'')" class="">SFC上影影城（喜玛拉雅店）</li>
+                                <li cid="31129101" onclick="chooseCinemaDetail(this,'')" class="">SFC上影影城（金桥太茂店）</li>
+                            </ul>
+                        </div>
+                        <div class="detail_nav none" id="cinema_info_31081501">
+                            <span class="fr">长宁区新华路160号(番禺路口)（021-62817017）</span><strong>SFC上海影城</strong>
+                        </div>
+                        <div class="detail_nav none" id="cinema_info_31113501">
+                            <span class="fr">闵行区漕宝路3489号汇宝广场8楼（021-64119776）</span><strong>SFC上影影城（七宝店）</strong>
+                        </div>
+                        <div class="detail_nav none" id="cinema_info_31124501">
+                            <span class="fr">浦东新区世博大道1200号世博文化中心6楼（021-20251186）</span><strong>SFC上影影城（世博店）</strong>
+                        </div>
+                        <div class="detail_nav none" id="cinema_info_31125001">
+                            <span class="fr">浦东新区芳甸路1188弄喜玛拉雅中心7-8楼（021-60457099）</span><strong>SFC上影影城（喜玛拉雅店）</strong>
+                        </div>
+                        <div class="detail_nav " id="cinema_info_31129101">
+                            <span class="fr">上海市浦东新区金高路1882号金桥太茂广场四楼L401（68766608）</span><strong>SFC上影影城（金桥太茂店）</strong>
+                        </div>
+                        <ul class="detail_once clearfix" id="plan_info">
+                            <li class="clearfix" onmouseover="HotMoviePlanMouse('1512612603108150186')"
+                                onmouseout="movieMouseout('1512612603108150186')"><p><strong>10:10</strong>3D 英语</p>
+                                <span class="price_plan" id="price_plan_1512612603108150186"
+                                      style="display: block;"><label>￥55</label><font>￥110</font></span><span
+                                        onclick="buyMovie('1512612603108150186')" class="once_current buy_plan"
+                                        id="buy_plan_1512612603108150186" style="cursor: pointer; display: none;">选座<br>购票</span>
+                            </li>
+                            <li class="clearfix" onmouseover="HotMoviePlanMouse('1512615003108150181')"
+                                onmouseout="movieMouseout('1512615003108150181')"><p><strong>10:50</strong>巨幕3D 英语</p>
+                                <span class="price_plan" id="price_plan_1512615003108150181"
+                                      style="display: block;"><label>￥75</label><font>￥150</font></span><span
+                                        onclick="buyMovie('1512615003108150181')" class="once_current buy_plan"
+                                        id="buy_plan_1512615003108150181" style="cursor: pointer; display: none;">选座<br>购票</span>
+                            </li>
+                            <li class="clearfix" onmouseover="HotMoviePlanMouse('1512618003108150183')"
+                                onmouseout="movieMouseout('1512618003108150183')"><p><strong>11:40</strong>3D 国语</p>
+                                <span class="price_plan" id="price_plan_1512618003108150183"
+                                      style="display: block;"><label>￥55</label><font>￥110</font></span><span
+                                        onclick="buyMovie('1512618003108150183')" class="once_current buy_plan"
+                                        id="buy_plan_1512618003108150183" style="cursor: pointer; display: none;">选座<br>购票</span>
+                            </li>
+                            <li class="clearfix" onmouseover="HotMoviePlanMouse('1512620403108150186')"
+                                onmouseout="movieMouseout('1512620403108150186')"><p><strong>12:20</strong>3D 英语</p>
+                                <span class="price_plan" id="price_plan_1512620403108150186"
+                                      style="display: block;"><label>￥100</label><font>￥110</font></span><span
+                                        onclick="buyMovie('1512620403108150186')" class="once_current buy_plan"
+                                        id="buy_plan_1512620403108150186" style="cursor: pointer; display: none;">选座<br>购票</span>
+                            </li>
+                            <li class="clearfix" onmouseover="HotMoviePlanMouse('1512622803108150181')"
+                                onmouseout="movieMouseout('1512622803108150181')"><p><strong>13:00</strong>巨幕3D 英语</p>
+                                <span class="price_plan" id="price_plan_1512622803108150181"
+                                      style="display: block;"><label>￥140</label><font>￥150</font></span><span
+                                        onclick="buyMovie('1512622803108150181')" class="once_current buy_plan"
+                                        id="buy_plan_1512622803108150181" style="cursor: pointer; display: none;">选座<br>购票</span>
+                            </li>
+                            <li class="clearfix" onmouseover="HotMoviePlanMouse('1512625803108150183')"
+                                onmouseout="movieMouseout('1512625803108150183')"><p><strong>13:50</strong>3D 国语</p>
+                                <span class="price_plan" id="price_plan_1512625803108150183"
+                                      style="display: block;"><label>￥100</label><font>￥110</font></span><span
+                                        onclick="buyMovie('1512625803108150183')" class="once_current buy_plan"
+                                        id="buy_plan_1512625803108150183" style="cursor: pointer; display: none;">选座<br>购票</span>
+                            </li>
+                            <li class="clearfix" onmouseover="HotMoviePlanMouse('1512626403108150187')"
+                                onmouseout="movieMouseout('1512626403108150187')"><p><strong>14:00</strong>3D 英语</p>
+                                <span class="price_plan" id="price_plan_1512626403108150187"
+                                      style="display: block;"><label>￥100</label><font>￥110</font></span><span
+                                        onclick="buyMovie('1512626403108150187')" class="once_current buy_plan"
+                                        id="buy_plan_1512626403108150187" style="cursor: pointer; display: none;">选座<br>购票</span>
+                            </li>
+                            <li class="clearfix" onmouseover="HotMoviePlanMouse('1512628203108150186')"
+                                onmouseout="movieMouseout('1512628203108150186')"><p><strong>14:30</strong>3D 英语</p>
+                                <span class="price_plan" id="price_plan_1512628203108150186"
+                                      style="display: block;"><label>￥100</label><font>￥110</font></span><span
+                                        onclick="buyMovie('1512628203108150186')" class="once_current buy_plan"
+                                        id="buy_plan_1512628203108150186" style="cursor: pointer; display: none;">选座<br>购票</span>
+                            </li>
+                            <li class="clearfix" onmouseover="HotMoviePlanMouse('1512630603108150181')"
+                                onmouseout="movieMouseout('1512630603108150181')"><p><strong>15:10</strong>巨幕3D 英语</p>
+                                <span class="price_plan" id="price_plan_1512630603108150181"
+                                      style="display: block;"><label>￥140</label><font>￥150</font></span><span
+                                        onclick="buyMovie('1512630603108150181')" class="once_current buy_plan"
+                                        id="buy_plan_1512630603108150181" style="cursor: pointer; display: none;">选座<br>购票</span>
+                            </li>
+                            <li class="clearfix" onmouseover="HotMoviePlanMouse('1512633603108150183')"
+                                onmouseout="movieMouseout('1512633603108150183')"><p><strong>16:00</strong>3D 国语</p>
+                                <span class="price_plan" id="price_plan_1512633603108150183"
+                                      style="display: block;"><label>￥100</label><font>￥110</font></span><span
+                                        onclick="buyMovie('1512633603108150183')" class="once_current buy_plan"
+                                        id="buy_plan_1512633603108150183" style="cursor: pointer; display: none;">选座<br>购票</span>
+                            </li>
+                            <li class="clearfix" onmouseover="HotMoviePlanMouse('1512636003108150186')"
+                                onmouseout="movieMouseout('1512636003108150186')"><p><strong>16:40</strong>3D 英语</p>
+                                <span class="price_plan" id="price_plan_1512636003108150186"><label>￥100</label><font>￥110</font></span><span
+                                        onclick="buyMovie('1512636003108150186')" class="once_current buy_plan"
+                                        id="buy_plan_1512636003108150186" style="display: none;cursor: pointer;">选座<br>购票</span>
+                            </li>
+                            <li class="clearfix" onmouseover="HotMoviePlanMouse('1512638403108150181')"
+                                onmouseout="movieMouseout('1512638403108150181')"><p><strong>17:20</strong>巨幕3D 英语</p>
+                                <span class="price_plan" id="price_plan_1512638403108150181"
+                                      style="display: block;"><label>￥140</label><font>￥150</font></span><span
+                                        onclick="buyMovie('1512638403108150181')" class="once_current buy_plan"
+                                        id="buy_plan_1512638403108150181" style="cursor: pointer; display: none;">选座<br>购票</span>
+                            </li>
+                            <li class="clearfix" onmouseover="HotMoviePlanMouse('1512641403108150187')"
+                                onmouseout="movieMouseout('1512641403108150187')"><p><strong>18:10</strong>3D 国语</p>
+                                <span class="price_plan" id="price_plan_1512641403108150187"
+                                      style="display: block;"><label>￥110</label><font>￥110</font></span><span
+                                        onclick="buyMovie('1512641403108150187')" class="once_current buy_plan"
+                                        id="buy_plan_1512641403108150187" style="cursor: pointer; display: none;">选座<br>购票</span>
+                            </li>
+                            <li class="clearfix" onmouseover="HotMoviePlanMouse('1512643803108150186')"
+                                onmouseout="movieMouseout('1512643803108150186')"><p><strong>18:50</strong>3D 英语</p>
+                                <span class="price_plan" id="price_plan_1512643803108150186"
+                                      style="display: block;"><label>￥110</label><font>￥110</font></span><span
+                                        onclick="buyMovie('1512643803108150186')" class="once_current buy_plan"
+                                        id="buy_plan_1512643803108150186" style="cursor: pointer; display: none;">选座<br>购票</span>
+                            </li>
+                            <li class="clearfix" onmouseover="HotMoviePlanMouse('1512646203108150181')"
+                                onmouseout="movieMouseout('1512646203108150181')"><p><strong>19:30</strong>巨幕3D 英语</p>
+                                <span class="price_plan" id="price_plan_1512646203108150181"
+                                      style="display: block;"><label>￥150</label><font>￥150</font></span><span
+                                        onclick="buyMovie('1512646203108150181')" class="once_current buy_plan"
+                                        id="buy_plan_1512646203108150181" style="cursor: pointer; display: none;">选座<br>购票</span>
+                            </li>
+                            <li class="clearfix" onmouseover="HotMoviePlanMouse('1512649203108150187')"
+                                onmouseout="movieMouseout('1512649203108150187')"><p><strong>20:20</strong>3D 国语</p>
+                                <span class="price_plan" id="price_plan_1512649203108150187"><label>￥110</label><font>￥110</font></span><span
+                                        onclick="buyMovie('1512649203108150187')" class="once_current buy_plan"
+                                        id="buy_plan_1512649203108150187" style="display: none;cursor: pointer;">选座<br>购票</span>
+                            </li>
+                            <li class="clearfix" onmouseover="HotMoviePlanMouse('1512651603108150186')"
+                                onmouseout="movieMouseout('1512651603108150186')"><p><strong>21:00</strong>3D 英语</p>
+                                <span class="price_plan" id="price_plan_1512651603108150186"><label>￥110</label><font>￥110</font></span><span
+                                        onclick="buyMovie('1512651603108150186')" class="once_current buy_plan"
+                                        id="buy_plan_1512651603108150186" style="display: none;cursor: pointer;">选座<br>购票</span>
+                            </li>
+                            <li class="clearfix" onmouseover="HotMoviePlanMouse('1512654003108150181')"
+                                onmouseout="movieMouseout('1512654003108150181')"><p><strong>21:40</strong>巨幕3D 英语</p>
+                                <span class="price_plan" id="price_plan_1512654003108150181"
+                                      style="display: block;"><label>￥150</label><font>￥150</font></span><span
+                                        onclick="buyMovie('1512654003108150181')" class="once_current buy_plan"
+                                        id="buy_plan_1512654003108150181" style="cursor: pointer; display: none;">选座<br>购票</span>
+                            </li>
+                            <li class="clearfix" onmouseover="HotMoviePlanMouse('1512657003108150187')"
+                                onmouseout="movieMouseout('1512657003108150187')"><p><strong>22:30</strong>3D 英语</p>
+                                <span class="price_plan" id="price_plan_1512657003108150187"><label>￥110</label><font>￥110</font></span><span
+                                        onclick="buyMovie('1512657003108150187')" class="once_current buy_plan"
+                                        id="buy_plan_1512657003108150187" style="display: none;cursor: pointer;">选座<br>购票</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="detail_take hidden">
+                        <div class="detail_caption"><strong>片名：寻梦环游记</strong>片长：分钟</div>
+
+                        <ul class="detail_notice">
+                            <li class="detail_poster">
+                                　　影片讲述一个鞋匠家庭出身的12岁小男孩米格尔，自幼有一个音乐梦，但音乐却是被家庭所禁止的，他们认为自己被音乐诅咒了。在米格尔秘密追寻音乐梦时，不小心进入了死亡之地，在这里他遇见了家人们的灵魂，并得到了他们的祝福去歌唱，最终重返人间。
+                            </li>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="detail_take hidden">
+                        <ul class="detail_list"></ul>
+                    </div>
+                    <div class="detail_take hidden">
+                    </div>
+                </div>
+            </div>
+            <div class="list_right fr pt_0">
+                <div class="list_flack hidden">
+                    <a href="activity/detail/56" target="_blank"><img
+                            src="http://file.komovie.cn/yingguan/picture/201608/20160801/14700451823933.jpg"
+                            width="259px" height="115px" alt=""></a>
+                    <a href="activity/detail/55" target="_blank"><img
+                            src="http://file.komovie.cn/yingguan/picture/201704/20170410/14918090728567.jpg"
+                            width="259px" height="115px" alt=""></a>
+                    <a href="activity/detail/54" target="_blank"><img
+                            src="http://file.komovie.cn/yingguan/picture/201602/20160226/14564529956707.jpg"
+                            width="259px" height="115px" alt=""></a>
+                    <a href="activity/detail/53" target="_blank"><img
+                            src="http://file.komovie.cn/yingguan/picture/201602/20160216/14556019546268.jpg"
+                            width="259px" height="115px" alt=""></a>
+                </div>
+                <div class="list_hot">
+                    <div class="list_point">一周购票排行</div>
+                    <div class="list_offer clearfix">
+                        <a href="movie/detail/101310" class="list_show"><img
+                                src="http://audio.komovie.cn/sns/2017/10/24/96789839896102156148.jpg" alt=""
+                                width="79px" height="119px;"></a>
+                        <div class="list_one">
+                            <span class="clearfix"><a href="movie/detail/101310">寻梦环游记</a>
+                                <!-- <strong>8</strong><font>.0</font> --></span>
+                            <div class="list_type">动画 / 音乐 / 冒险//</div>
+                            <a href="site/choose/101310" class="list_seat">选座购票</a>
+                        </div>
+                    </div>
+                    <div class="list_offer clearfix">
+                        <a href="movie/detail/100593" class="list_show"><img
+                                src="http://audio.komovie.cn/sns/2017/10/18/58615602858462714739.jpg" alt=""
+                                width="79px" height="119px;"></a>
+                        <div class="list_one">
+                            <span class="clearfix"><a href="movie/detail/100593"> 不倒侠</a>
+                                <!-- <strong>8</strong><font>.0</font> --></span>
+                            <div class="list_type">爱情 / 科幻//</div>
+                            <a href="site/choose/100593" class="list_seat">选座购票</a>
+                        </div>
+                    </div>
+                    <div class="list_offer clearfix">
+                        <a href="movie/detail/88058" class="list_show"><img
+                                src="http://audio.komovie.cn/sns/2017/09/12/56500815592904898519.jpg" alt=""
+                                width="79px" height="119px;"></a>
+                        <div class="list_one">
+                            <span class="clearfix"><a href="movie/detail/88058">芳华</a>
+                                <!-- <strong>8</strong><font>.0</font> --></span>
+                            <div class="list_type">剧情//</div>
+                            <a href="site/choose/88058" class="list_seat">选座购票</a>
+                        </div>
+                    </div>
+                    <div class="list_offer clearfix">
+                        <a href="movie/detail/101354" class="list_show"><img src="" alt="" width="79px" height="119px;"></a>
+                        <div class="list_one">
+                            <span class="clearfix"><a href="movie/detail/101354">至爱梵高·星空之谜</a>
+                                <!-- <strong>8</strong><font>.0</font> --></span>
+                            <div class="list_type">剧情 / 动画 / 传记//</div>
+                            <a href="site/choose/101354" class="list_seat">选座购票</a>
+                        </div>
+                    </div>
+                    <div class="list_offer clearfix">
+                        <a href="movie/detail/101331" class="list_show"><img
+                                src="http://audio.komovie.cn/sns/2017/11/14/82508464510533437386.jpg" alt=""
+                                width="79px" height="119px;"></a>
+                        <div class="list_one">
+                            <span class="clearfix"><a href="movie/detail/101331">至暗时刻 </a>
+                                <!-- <strong>8</strong><font>.0</font> --></span>
+                            <div class="list_type">剧情 / 传记 / 历史//</div>
+                            <a href="site/choose/101331" class="list_seat">选座购票</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="poster_banner"><a href="" target="_blank"><img
+                src="http://file.komovie.cn/yingguan/picture/201710/20171023/15087429473015.jpg" width="1200px"
+                height="118px" alt=""></a></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    chooseDefault();
+
+    function movie_like(obj) {
+        var obj = $(obj);
+        var lookCount = $("#lookCount").html();
+        var film_id = '101310';
+        $.ajax({
+            url: "movie/movielike",
+            data: {film_id: 101310},
+            dataType: 'json',
+            success: function (data) {
+                if (data['status'] == 0) {
+                    $("#lookCount").html(parseInt(lookCount) + 1);
+                    obj.addClass("detail_color").html('<span class="detail_position"></span>喜欢').removeAttr("onclick");
+                    setCookie('xingmei', film_id);
+                } else {
+                    $("#index_layer_one_").fadeIn().removeClass("hidden").html("请求失败，请重试...");
+                    $("#index_layer_one_").fadeOut({duration: 1000});
+                }
+            }
+        });
+    }
+</script>
+</body>
+</html>
+
+

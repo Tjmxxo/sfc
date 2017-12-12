@@ -1,0 +1,969 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <link rel="stylesheet" type="text/css" href="../../css/sheet.css"/>
+    <link rel="stylesheet" type="text/css" href="../../js/dialog/easydialog.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/style.css"/>
+    <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+    <title>本市影城-上影影城</title>
+</head>
+
+<body class="address_area">
+<script type="text/javascript" src="../../js/dialog/easydialog.min.js"></script>
+<script type="text/javascript" src="../../js/script.js"></script>
+<script type="text/javascript" src="../../js/movie.js"></script>
+<script type="text/javascript" src="../../js/sheet.js"></script>
+
+<div class="page_color none page_number"></div>
+<div class=" width_max background_color2">
+    <div class="index_top_information">
+        <div class="wrap">
+            <div class="login">
+                <p class="pl_20 left">您好，欢迎光临上影国际影城</p>
+                <div class="login_nav right">
+                    <a href="user/login">登录</a><span>|</span>
+                    <a href="user/reg">注册</a><span>|</span>
+                    <a href="member/index">我的上影</a><span>|</span>
+                    <a href="site/app" class="login_down">手机app</a></div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--------- 登陆 ------------->
+<div class="page_title width_max">
+    <div class="wrap menu_h position_r nav_color nav_number clearfix">
+        <div class="logo left"><a href=""></a></div>
+        <div class="city f_12 left" id="city_all"><span id="city_now">上海市</span></div>
+        <div class="menu fl">
+            <ul>
+                <li><a href="">首页</a></li>
+                <li><a href="movie/HotMovie">电影</a></li>
+                <li><a href="cinema/index" class="nav_current">影院</a></li>
+                <li><a href="activity/index">资讯</a></li>
+            </ul>
+        </div>
+        <div class="once_money hidden"><a href="#">会员充值</a></div>
+        <div class="clear"></div>
+        <div class="city_icon none"></div>
+        <div class="city_list none" id="city_list">
+            <div class="city_hot clearfix">
+                <p class="right"></p>
+                <span class="fl">热门城市：</span>
+                <div class="fl city_width">
+                </div>
+            </div>
+            <div class="city_letter">
+                <p class="city_tip">
+                    <span class="letter_current" onclick="city_show(this)">ABCD</span>
+                    <span class="cz_class" onclick="city_show(this)">EFGH</span>
+                    <span class="cz_class" onclick="city_show(this)">IJKL</span>
+                    <span class="cz_class" onclick="city_show(this)">MNOP</span>
+                    <span class="cz_class" onclick="city_show(this)">QRST</span>
+                    <span class="cz_class" onclick="city_show(this)">UVWX</span>
+                    <span class="cz_class" onclick="city_show(this)">YZ</span>
+                </p>
+                <p class="city_search">
+                    <a href="javascript:void(0)" cn="ABCD" onclick="change_city(this)" class="city_current"
+                       cityid="340800">安庆市</a>
+                    <a href="javascript:void(0)" cn="ABCD" onclick="change_city(this)" class="city_current"
+                       cityid="110100">北京市</a>
+                    <a href="javascript:void(0)" cn="ABCD" onclick="change_city(this)" class="city_current"
+                       cityid="320400">常州市</a>
+                    <a href="javascript:void(0)" cn="ABCD" onclick="change_city(this)" class="city_current"
+                       cityid="430100">长沙市</a>
+                    <a href="javascript:void(0)" cn="ABCD" onclick="change_city(this)" class="city_current"
+                       cityid="510100">成都市</a>
+                    <a href="javascript:void(0)" cn="ABCD" onclick="change_city(this)" class="city_current"
+                       cityid="210200">大连市</a>
+                    <a href="javascript:void(0)" cn="EFGH" onclick="change_city(this)" class="none"
+                       cityid="440100">广州市</a>
+                    <a href="javascript:void(0)" cn="EFGH" onclick="change_city(this)" class="none"
+                       cityid="330100">杭州市</a>
+                    <a href="javascript:void(0)" cn="EFGH" onclick="change_city(this)" class="none"
+                       cityid="341000">黄山市</a>
+                    <a href="javascript:void(0)" cn="IJKL" onclick="change_city(this)" class="none"
+                       cityid="330400">嘉兴市</a>
+                    <a href="javascript:void(0)" cn="IJKL" onclick="change_city(this)" class="none"
+                       cityid="530100">昆明市</a>
+                    <a href="javascript:void(0)" cn="MNOP" onclick="change_city(this)" class="none"
+                       cityid="320100">南京市</a>
+                    <a href="javascript:void(0)" cn="MNOP" onclick="change_city(this)" class="none"
+                       cityid="320600">南通市</a>
+                    <a href="javascript:void(0)" cn="MNOP" onclick="change_city(this)" class="none"
+                       cityid="330200">宁波市</a>
+                    <a href="javascript:void(0)" cn="QRST" onclick="change_city(this)" class="none"
+                       cityid="370200">青岛市</a>
+                    <a href="javascript:void(0)" cn="QRST" onclick="change_city(this)" class="none"
+                       cityid="210100">沈阳市</a>
+                    <a href="javascript:void(0)" cn="QRST" onclick="change_city(this)" class="none"
+                       cityid="310100">上海市</a>
+                    <a href="javascript:void(0)" cn="QRST" onclick="change_city(this)" class="none"
+                       cityid="320500">苏州市</a>
+                    <a href="javascript:void(0)" cn="QRST" onclick="change_city(this)" class="none"
+                       cityid="321300">宿迁市</a>
+                    <a href="javascript:void(0)" cn="QRST" onclick="change_city(this)" class="none"
+                       cityid="120100">天津市</a>
+                    <a href="javascript:void(0)" cn="UVWX" onclick="change_city(this)" class="none"
+                       cityid="320200">无锡市</a>
+                    <a href="javascript:void(0)" cn="UVWX" onclick="change_city(this)" class="none"
+                       cityid="320300">徐州市</a>
+                    <a href="javascript:void(0)" cn="UVWX" onclick="change_city(this)" class="none"
+                       cityid="610100">西安市</a>
+                    <a href="javascript:void(0)" cn="YZ" onclick="change_city(this)" class="none"
+                       cityid="440800">湛江市</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--------- 顶部 -------------->
+<div class="page_box">
+    <div class="video_top">
+        <div class="video_time">
+            <ul>
+                <li class="video_city clearfix">
+                    <span>热门城市：</span>
+                </li>
+                <li class="video_word">
+                    <span>全部</span>
+                    <span class="video_color" onclick="cinemaCityShow(this)">ABCD</span>
+                    <span class="cz_class" onclick="cinemaCityShow(this)">EFGH</span>
+                    <span class="cz_class" onclick="cinemaCityShow(this)">IJKL</span>
+                    <span class="cz_class" onclick="cinemaCityShow(this)">MNOP</span>
+                    <span class="cz_class" onclick="cinemaCityShow(this)">QRST</span>
+                    <span class="cz_class" onclick="cinemaCityShow(this)">UVWX</span>
+                    <span class="cz_class" onclick="cinemaCityShow(this)">YZ</span>
+                </li>
+                <!--<li class="video_region">
+                	<span class="video_color">Array</span>	                     <span cn="ABCD" onclick="change_city(this)" class="shows " cityid=""></span>
+	                	<span class="video_color">Array</span>	                     <span cn="ABCD" onclick="change_city(this)" class="shows " cityid=""></span>
+	                	<span class="video_color">Array</span>	                     <span cn="ABCD" onclick="change_city(this)" class="shows " cityid=""></span>
+	                	<span class="video_color">Array</span>	                     <span cn="ABCD" onclick="change_city(this)" class="shows " cityid=""></span>
+	                	<span class="video_color">Array</span>	                     <span cn="EFGH" onclick="change_city(this)" class="none " cityid=""></span>
+	                	<span class="video_color">Array</span>	                     <span cn="EFGH" onclick="change_city(this)" class="none " cityid=""></span>
+	                	<span class="video_color">Array</span>	                     <span cn="IJKL" onclick="change_city(this)" class="none " cityid=""></span>
+	                	<span class="video_color">Array</span>	                     <span cn="IJKL" onclick="change_city(this)" class="none " cityid=""></span>
+	                	<span class="video_color">Array</span>	                     <span cn="MNOP" onclick="change_city(this)" class="none " cityid=""></span>
+	                	<span class="video_color">Array</span>	                     <span cn="QRST" onclick="change_city(this)" class="none " cityid=""></span>
+	                	<span class="video_color">Array</span>	                     <span cn="QRST" onclick="change_city(this)" class="none " cityid=""></span>
+	                	<span class="video_color">Array</span>	                     <span cn="QRST" onclick="change_city(this)" class="none " cityid=""></span>
+	                	<span class="video_color">Array</span>	                     <span cn="UVWX" onclick="change_city(this)" class="none " cityid=""></span>
+	                	<span class="video_color">Array</span>	                     <span cn="UVWX" onclick="change_city(this)" class="none " cityid=""></span>
+	                	<span class="video_color">Array</span>	                     <span cn="YZ" onclick="change_city(this)" class="none " cityid=""></span>
+	                	                </li>
+                -->
+                <li class="video_region ABCD ">
+                    <span cn="ABCD" class="shows">A</span>
+                    <span cn="ABCD" onclick="change_city(this)" class="shows " cityid="340800">安庆市</span>
+                </li>
+                <li class="video_region ABCD ">
+                    <span cn="ABCD" class="shows">B</span>
+                    <span cn="ABCD" onclick="change_city(this)" class="shows " cityid="110100">北京市</span>
+                </li>
+                <li class="video_region ABCD ">
+                    <span cn="ABCD" class="shows">C</span>
+                    <span cn="ABCD" onclick="change_city(this)" class="shows " cityid="320400">常州市</span>
+                    <span cn="ABCD" onclick="change_city(this)" class="shows " cityid="430100">长沙市</span>
+                    <span cn="ABCD" onclick="change_city(this)" class="shows " cityid="510100">成都市</span>
+                </li>
+                <li class="video_region ABCD ">
+                    <span cn="ABCD" class="shows">D</span>
+                    <span cn="ABCD" onclick="change_city(this)" class="shows " cityid="210200">大连市</span>
+                </li>
+                <li class="video_region EFGH none">
+                    <span cn="EFGH" class="none">G</span>
+                    <span cn="EFGH" onclick="change_city(this)" class="none " cityid="440100">广州市</span>
+                </li>
+                <li class="video_region EFGH none">
+                    <span cn="EFGH" class="none">H</span>
+                    <span cn="EFGH" onclick="change_city(this)" class="none " cityid="330100">杭州市</span>
+                    <span cn="EFGH" onclick="change_city(this)" class="none " cityid="341000">黄山市</span>
+                </li>
+                <li class="video_region IJKL none">
+                    <span cn="IJKL" class="none">J</span>
+                    <span cn="IJKL" onclick="change_city(this)" class="none " cityid="330400">嘉兴市</span>
+                </li>
+                <li class="video_region IJKL none">
+                    <span cn="IJKL" class="none">K</span>
+                    <span cn="IJKL" onclick="change_city(this)" class="none " cityid="530100">昆明市</span>
+                </li>
+                <li class="video_region MNOP none">
+                    <span cn="MNOP" class="none">N</span>
+                    <span cn="MNOP" onclick="change_city(this)" class="none " cityid="320100">南京市</span>
+                    <span cn="MNOP" onclick="change_city(this)" class="none " cityid="320600">南通市</span>
+                    <span cn="MNOP" onclick="change_city(this)" class="none " cityid="330200">宁波市</span>
+                </li>
+                <li class="video_region QRST none">
+                    <span cn="QRST" class="none">Q</span>
+                    <span cn="QRST" onclick="change_city(this)" class="none " cityid="370200">青岛市</span>
+                </li>
+                <li class="video_region QRST none">
+                    <span cn="QRST" class="none">S</span>
+                    <span cn="QRST" onclick="change_city(this)" class="none " cityid="210100">沈阳市</span>
+                    <span cn="QRST" onclick="change_city(this)" class="none video_color_c" cityid="310100">上海市</span>
+                    <span cn="QRST" onclick="change_city(this)" class="none " cityid="320500">苏州市</span>
+                    <span cn="QRST" onclick="change_city(this)" class="none " cityid="321300">宿迁市</span>
+                </li>
+                <li class="video_region QRST none">
+                    <span cn="QRST" class="none">T</span>
+                    <span cn="QRST" onclick="change_city(this)" class="none " cityid="120100">天津市</span>
+                </li>
+                <li class="video_region UVWX none">
+                    <span cn="UVWX" class="none">W</span>
+                    <span cn="UVWX" onclick="change_city(this)" class="none " cityid="320200">无锡市</span>
+                </li>
+                <li class="video_region UVWX none">
+                    <span cn="UVWX" class="none">X</span>
+                    <span cn="UVWX" onclick="change_city(this)" class="none " cityid="320300">徐州市</span>
+                    <span cn="UVWX" onclick="change_city(this)" class="none " cityid="610100">西安市</span>
+                </li>
+                <li class="video_region YZ none">
+                    <span cn="YZ" class="none">Z</span>
+                    <span cn="YZ" onclick="change_city(this)" class="none " cityid="440800">湛江市</span>
+                </li>
+                <!--
+<li class="video_mode clearfix">
+<span>IMAX</span>
+<span class="hot_current">IMAX</span>
+<span>IMAX</span>
+<span>IMAX</span>
+<span>IMAX</span>
+<span>IMAX</span>
+<span class="width_104">杜比全景声厅</span>
+<span>IMAX</span>
+</li>
+--></ul>
+        </div>
+    </div>
+    <div class="video_content clearfix">
+        <div class="video_left fl">
+            <div class="video_list">
+                <div class="video_tip clearfix">
+                    <a href="cinema/detail/31081501" class="video_icon"><img
+                            src="http://file.komovie.cn/piaocang/gallery/14320030803537.jpg" alt="" width="200px"
+                            height="150px"></a>
+                    <dl>
+                        <dt><a href="cinema/detail/31081501">SFC上海影城</a></dt>
+                        <dd>影院地址：长宁区新华路160号(番禺路口)</dd>
+                        <dd>联系电话：021-62817017</dd>
+                        <!--<dd>业务合作：周女士 13311852230/56530761</dd>-->
+                        <dd> 营业时间：星期一至星期日：09:00:00-23:30:00</dd>
+                        <!--<dd class="video_key clearfix"><span>双机3D</span><span>IMAX</span><span>VIP厅</span></dd>
+                    --></dl>
+                    <ul>
+                        <!--<li class="video_start"><span></span><span></span><span></span><span></span><span class="video_position"></span><strong>8</strong><font>.5</font></li>
+                        <li class="video_number clearfix"><img src="../images/video_number.png" alt=""></li>
+                        <li class="video_start">微信公众账号</li>-->
+                    </ul>
+                </div>
+                <div class="video_hot clearfix">
+                    <font>正在热映：</font>
+                    <p>
+                        <a href="movie/detail/101310?cid=31081501" style="color: #000;">
+                            <span>寻梦环游记<strong>￥55</strong>起</span>
+                        </a>
+                        <a href="movie/detail/100593?cid=31081501" style="color: #000;">
+                            <span> 不倒侠<strong>￥100</strong>起</span>
+                        </a>
+                        <a href="movie/detail/99282?cid=31081501" style="color: #000;">
+                            <span>正义联盟<strong>￥65</strong>起</span>
+                        </a>
+                        <a href="movie/detail/99122?cid=31081501" style="color: #000;">
+                            <span>追捕<strong>￥50</strong>起</span>
+                        </a>
+                        <a href="movie/detail/76682?cid=31081501" style="color: #000;">
+                            <span>不成问题的问题<strong>￥50</strong>起</span>
+                        </a>
+                        <a href="movie/detail/99284?cid=31081501" style="color: #000;">
+                            <span>嘉年华<strong>￥50</strong>起</span>
+                        </a>
+                        <a href="movie/detail/101330?cid=31081501" style="color: #000;">
+                            <span>烟花<strong>￥55</strong>起</span>
+                        </a>
+                        <a href="movie/detail/101331?cid=31081501" style="color: #000;">
+                            <span>至暗时刻 <strong>￥60</strong>起</span>
+                        </a>
+                        <a href="movie/detail/99281?cid=31081501" style="color: #000;">
+                            <span>东方快车谋杀案<strong>￥100</strong>起</span>
+                        </a>
+                        <a href="movie/detail/99116?cid=31081501" style="color: #000;">
+                            <span>七十七天<strong>￥90</strong>起</span>
+                        </a>
+                        <a href="movie/detail/92937?cid=31081501" style="color: #000;">
+                            <span>相爱相亲<strong>￥90</strong>起</span>
+                        </a>
+                        <a href="movie/detail/101339?cid=31081501" style="color: #000;">
+                            <span>维京：王者之战<strong>￥55</strong>起</span>
+                        </a>
+                        <a href="movie/detail/101317?cid=31081501" style="color: #000;">
+                            <span>冒牌监护人之寻宝闹翻天<strong>￥50</strong>起</span>
+                        </a>
+                        <a href="movie/detail/100591?cid=31081501" style="color: #000;">
+                            <span>这就是命<strong>￥50</strong>起</span>
+                        </a>
+                        <a href="movie/detail/99091?cid=31081501" style="color: #000;">
+                            <span>时间去哪儿了<strong>￥90</strong>起</span>
+                        </a>
+                        <a href="movie/detail/92930?cid=31081501" style="color: #000;">
+                            <span>烽火芳菲<strong>￥50</strong>起</span>
+                        </a>
+                        <a href="movie/detail/91551?cid=31081501" style="color: #000;">
+                            <span>引爆者<strong>￥50</strong>起</span>
+                        </a>
+                        <a href="movie/detail/83033?cid=31081501" style="color: #000;">
+                            <span>空天猎<strong>￥90</strong>起</span>
+                        </a>
+                        <a href="movie/detail/101318?cid=31081501" style="color: #000;">
+                            <span>刺杀盖世太保<strong>￥55</strong>起</span>
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <div class="video_list">
+                <div class="video_tip clearfix">
+                    <a href="cinema/detail/31128901" class="video_icon"><img src="" alt="" width="200px" height="150px"></a>
+                    <dl>
+                        <dt><a href="cinema/detail/31128901">SFC上影影城（丁香路店）</a></dt>
+                        <dd>影院地址：中国（上海）自由贸易试验区丁香路858号三楼</dd>
+                        <dd>联系电话：021-68585768</dd>
+                        <!--<dd>业务合作：周女士 13311852230/56530761</dd>-->
+                        <dd> 营业时间：星期一至星期日：10:00-23:59</dd>
+                        <!--<dd class="video_key clearfix"><span>双机3D</span><span>IMAX</span><span>VIP厅</span></dd>
+                    --></dl>
+                    <ul>
+                        <!--<li class="video_start"><span></span><span></span><span></span><span></span><span class="video_position"></span><strong>8</strong><font>.5</font></li>
+                        <li class="video_number clearfix"><img src="../images/video_number.png" alt=""></li>
+                        <li class="video_start">微信公众账号</li>-->
+                    </ul>
+                </div>
+                <div class="video_hot clearfix">
+                    <font>正在热映：</font>
+                    <p>
+                        <a href="movie/detail/101310?cid=31128901" style="color: #000;">
+                            <span>寻梦环游记<strong>￥50</strong>起</span>
+                        </a>
+                        <a href="movie/detail/99282?cid=31128901" style="color: #000;">
+                            <span>正义联盟<strong>￥50</strong>起</span>
+                        </a>
+                        <a href="movie/detail/101330?cid=31128901" style="color: #000;">
+                            <span>烟花<strong>￥40</strong>起</span>
+                        </a>
+                        <a href="movie/detail/101339?cid=31128901" style="color: #000;">
+                            <span>维京：王者之战<strong>￥40</strong>起</span>
+                        </a>
+                        <a href="movie/detail/99281?cid=31128901" style="color: #000;">
+                            <span>东方快车谋杀案<strong>￥40</strong>起</span>
+                        </a>
+                        <a href="movie/detail/100591?cid=31128901" style="color: #000;">
+                            <span>这就是命<strong>￥40</strong>起</span>
+                        </a>
+                        <a href="movie/detail/99284?cid=31128901" style="color: #000;">
+                            <span>嘉年华<strong>￥40</strong>起</span>
+                        </a>
+                        <a href="movie/detail/99274?cid=31128901" style="color: #000;">
+                            <span>雷神3：诸神黄昏<strong>￥100</strong>起</span>
+                        </a>
+                        <a href="movie/detail/100245?cid=31128901" style="color: #000;">
+                            <span>垫底联盟<strong>￥80</strong>起</span>
+                        </a>
+                        <a href="movie/detail/101332?cid=31128901" style="color: #000;">
+                            <span>相声大电影之我要幸福 <strong>￥100</strong>起</span>
+                        </a>
+                        <a href="movie/detail/101331?cid=31128901" style="color: #000;">
+                            <span>至暗时刻 <strong>￥100</strong>起</span>
+                        </a>
+                        <a href="movie/detail/100593?cid=31128901" style="color: #000;">
+                            <span> 不倒侠<strong>￥80</strong>起</span>
+                        </a>
+                        <a href="movie/detail/99122?cid=31128901" style="color: #000;">
+                            <span>追捕<strong>￥40</strong>起</span>
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <div class="video_list">
+                <div class="video_tip clearfix">
+                    <a href="cinema/detail/31129101" class="video_icon"><img src="" alt="" width="200px" height="150px"></a>
+                    <dl>
+                        <dt><a href="cinema/detail/31129101">SFC上影影城（金桥太茂店）</a></dt>
+                        <dd>影院地址：上海市浦东新区金高路1882号金桥太茂广场四楼L401</dd>
+                        <dd>联系电话：68766608</dd>
+                        <!--<dd>业务合作：周女士 13311852230/56530761</dd>-->
+                        <dd> 营业时间：星期一至星期日：10:00-23:59:59</dd>
+                        <!--<dd class="video_key clearfix"><span>双机3D</span><span>IMAX</span><span>VIP厅</span></dd>
+                    --></dl>
+                    <ul>
+                        <!--<li class="video_start"><span></span><span></span><span></span><span></span><span class="video_position"></span><strong>8</strong><font>.5</font></li>
+                        <li class="video_number clearfix"><img src="../images/video_number.png" alt=""></li>
+                        <li class="video_start">微信公众账号</li>-->
+                    </ul>
+                </div>
+                <div class="video_hot clearfix">
+                    <font>正在热映：</font>
+                    <p>
+                        <a href="movie/detail/100593?cid=31129101" style="color: #000;">
+                            <span> 不倒侠<strong>￥60</strong>起</span>
+                        </a>
+                        <a href="movie/detail/101310?cid=31129101" style="color: #000;">
+                            <span>寻梦环游记<strong>￥90</strong>起</span>
+                        </a>
+                        <a href="movie/detail/101330?cid=31129101" style="color: #000;">
+                            <span>烟花<strong>￥80</strong>起</span>
+                        </a>
+                        <a href="movie/detail/88058?cid=31129101" style="color: #000;">
+                            <span>芳华<strong>￥80</strong>起</span>
+                        </a>
+                        <a href="movie/detail/99282?cid=31129101" style="color: #000;">
+                            <span>正义联盟<strong>￥65</strong>起</span>
+                        </a>
+                        <a href="movie/detail/101339?cid=31129101" style="color: #000;">
+                            <span>维京：王者之战<strong>￥80</strong>起</span>
+                        </a>
+                        <a href="movie/detail/99122?cid=31129101" style="color: #000;">
+                            <span>追捕<strong>￥80</strong>起</span>
+                        </a>
+                        <a href="movie/detail/100245?cid=31129101" style="color: #000;">
+                            <span>垫底联盟<strong>￥80</strong>起</span>
+                        </a>
+                        <a href="movie/detail/93801?cid=31129101" style="color: #000;">
+                            <span>巨额来电<strong>￥80</strong>起</span>
+                        </a>
+                        <a href="movie/detail/101332?cid=31129101" style="color: #000;">
+                            <span>相声大电影之我要幸福 <strong>￥80</strong>起</span>
+                        </a>
+                        <a href="movie/detail/100591?cid=31129101" style="color: #000;">
+                            <span>这就是命<strong>￥80</strong>起</span>
+                        </a>
+                        <a href="movie/detail/91551?cid=31129101" style="color: #000;">
+                            <span>引爆者<strong>￥80</strong>起</span>
+                        </a>
+                        <a href="movie/detail/99284?cid=31129101" style="color: #000;">
+                            <span>嘉年华<strong>￥80</strong>起</span>
+                        </a>
+                        <a href="movie/detail/99091?cid=31129101" style="color: #000;">
+                            <span>时间去哪儿了<strong>￥80</strong>起</span>
+                        </a>
+                        <a href="movie/detail/101331?cid=31129101" style="color: #000;">
+                            <span>至暗时刻 <strong>￥80</strong>起</span>
+                        </a>
+                        <a href="movie/detail/76682?cid=31129101" style="color: #000;">
+                            <span>不成问题的问题<strong>￥80</strong>起</span>
+                        </a>
+                        <a href="movie/detail/85777?cid=31129101" style="color: #000;">
+                            <span>推理笔记<strong>￥80</strong>起</span>
+                        </a>
+                        <a href="movie/detail/87988?cid=31129101" style="color: #000;">
+                            <span>空难余波 <strong>￥80</strong>起</span>
+                        </a>
+                        <a href="movie/detail/99281?cid=31129101" style="color: #000;">
+                            <span>东方快车谋杀案<strong>￥80</strong>起</span>
+                        </a>
+                        <a href="movie/detail/101318?cid=31129101" style="color: #000;">
+                            <span>刺杀盖世太保<strong>￥80</strong>起</span>
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <div class="video_list">
+                <div class="video_tip clearfix">
+                    <a href="cinema/detail/31124501" class="video_icon"><img
+                            src="http://file.komovie.cn/piaocang/gallery/14317687592970.jpg" alt="" width="200px"
+                            height="150px"></a>
+                    <dl>
+                        <dt><a href="cinema/detail/31124501">SFC上影影城（世博店）</a></dt>
+                        <dd>影院地址：浦东新区世博大道1200号世博文化中心6楼</dd>
+                        <dd>联系电话：021-20251186</dd>
+                        <!--<dd>业务合作：周女士 13311852230/56530761</dd>-->
+                        <dd> 营业时间：星期一至星期日：09:30:00-09:30:00</dd>
+                        <!--<dd class="video_key clearfix"><span>双机3D</span><span>IMAX</span><span>VIP厅</span></dd>
+                    --></dl>
+                    <ul>
+                        <!--<li class="video_start"><span></span><span></span><span></span><span></span><span class="video_position"></span><strong>8</strong><font>.5</font></li>
+                        <li class="video_number clearfix"><img src="../images/video_number.png" alt=""></li>
+                        <li class="video_start">微信公众账号</li>-->
+                    </ul>
+                </div>
+                <div class="video_hot clearfix">
+                    <font>正在热映：</font>
+                    <p>
+                        <a href="movie/detail/101310?cid=31124501" style="color: #000;">
+                            <span>寻梦环游记<strong>￥60</strong>起</span>
+                        </a>
+                        <a href="movie/detail/101330?cid=31124501" style="color: #000;">
+                            <span>烟花<strong>￥50</strong>起</span>
+                        </a>
+                        <a href="movie/detail/101339?cid=31124501" style="color: #000;">
+                            <span>维京：王者之战<strong>￥50</strong>起</span>
+                        </a>
+                        <a href="movie/detail/99282?cid=31124501" style="color: #000;">
+                            <span>正义联盟<strong>￥60</strong>起</span>
+                        </a>
+                        <a href="movie/detail/99122?cid=31124501" style="color: #000;">
+                            <span>追捕<strong>￥50</strong>起</span>
+                        </a>
+                        <a href="movie/detail/101332?cid=31124501" style="color: #000;">
+                            <span>相声大电影之我要幸福 <strong>￥50</strong>起</span>
+                        </a>
+                        <a href="movie/detail/88058?cid=31124501" style="color: #000;">
+                            <span>芳华<strong>￥50</strong>起</span>
+                        </a>
+                        <a href="movie/detail/100245?cid=31124501" style="color: #000;">
+                            <span>垫底联盟<strong>￥50</strong>起</span>
+                        </a>
+                        <a href="movie/detail/91551?cid=31124501" style="color: #000;">
+                            <span>引爆者<strong>￥65</strong>起</span>
+                        </a>
+                        <a href="movie/detail/100591?cid=31124501" style="color: #000;">
+                            <span>这就是命<strong>￥50</strong>起</span>
+                        </a>
+                        <a href="movie/detail/101331?cid=31124501" style="color: #000;">
+                            <span>至暗时刻 <strong>￥65</strong>起</span>
+                        </a>
+                        <a href="movie/detail/99284?cid=31124501" style="color: #000;">
+                            <span>嘉年华<strong>￥130</strong>起</span>
+                        </a>
+                        <a href="movie/detail/101318?cid=31124501" style="color: #000;">
+                            <span>刺杀盖世太保<strong>￥100</strong>起</span>
+                        </a>
+                        <a href="movie/detail/99091?cid=31124501" style="color: #000;">
+                            <span>时间去哪儿了<strong>￥50</strong>起</span>
+                        </a>
+                        <a href="movie/detail/100744?cid=31124501" style="color: #000;">
+                            <span>七月半3：灵触第七感<strong>￥50</strong>起</span>
+                        </a>
+                        <a href="movie/detail/83033?cid=31124501" style="color: #000;">
+                            <span>空天猎<strong>￥50</strong>起</span>
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <div class="video_list">
+                <div class="video_tip clearfix">
+                    <a href="cinema/detail/31125001" class="video_icon"><img
+                            src="http://file.komovie.cn/piaocang/gallery/14320039065760.jpg" alt="" width="200px"
+                            height="150px"></a>
+                    <dl>
+                        <dt><a href="cinema/detail/31125001">SFC上影影城（喜玛拉雅店）</a></dt>
+                        <dd>影院地址：浦东新区芳甸路1188弄喜玛拉雅中心7-8楼</dd>
+                        <dd>联系电话：021-60457099</dd>
+                        <!--<dd>业务合作：周女士 13311852230/56530761</dd>-->
+                        <dd> 营业时间：星期一至星期日：10:00:00-22:00:00</dd>
+                        <!--<dd class="video_key clearfix"><span>双机3D</span><span>IMAX</span><span>VIP厅</span></dd>
+                    --></dl>
+                    <ul>
+                        <!--<li class="video_start"><span></span><span></span><span></span><span></span><span class="video_position"></span><strong>8</strong><font>.5</font></li>
+                        <li class="video_number clearfix"><img src="../images/video_number.png" alt=""></li>
+                        <li class="video_start">微信公众账号</li>-->
+                    </ul>
+                </div>
+                <div class="video_hot clearfix">
+                    <font>正在热映：</font>
+                    <p>
+                        <a href="movie/detail/101310?cid=31125001" style="color: #000;">
+                            <span>寻梦环游记<strong>￥25</strong>起</span>
+                        </a>
+                        <a href="movie/detail/101330?cid=31125001" style="color: #000;">
+                            <span>烟花<strong>￥50</strong>起</span>
+                        </a>
+                        <a href="movie/detail/101339?cid=31125001" style="color: #000;">
+                            <span>维京：王者之战<strong>￥50</strong>起</span>
+                        </a>
+                        <a href="movie/detail/99282?cid=31125001" style="color: #000;">
+                            <span>正义联盟<strong>￥60</strong>起</span>
+                        </a>
+                        <a href="movie/detail/100245?cid=31125001" style="color: #000;">
+                            <span>垫底联盟<strong>￥50</strong>起</span>
+                        </a>
+                        <a href="movie/detail/99122?cid=31125001" style="color: #000;">
+                            <span>追捕<strong>￥50</strong>起</span>
+                        </a>
+                        <a href="movie/detail/99284?cid=31125001" style="color: #000;">
+                            <span>嘉年华<strong>￥50</strong>起</span>
+                        </a>
+                        <a href="movie/detail/100591?cid=31125001" style="color: #000;">
+                            <span>这就是命<strong>￥50</strong>起</span>
+                        </a>
+                        <a href="movie/detail/101332?cid=31125001" style="color: #000;">
+                            <span>相声大电影之我要幸福 <strong>￥100</strong>起</span>
+                        </a>
+                        <a href="movie/detail/99274?cid=31125001" style="color: #000;">
+                            <span>雷神3：诸神黄昏<strong>￥60</strong>起</span>
+                        </a>
+                        <a href="movie/detail/99281?cid=31125001" style="color: #000;">
+                            <span>东方快车谋杀案<strong>￥50</strong>起</span>
+                        </a>
+                        <a href="movie/detail/101325?cid=31125001" style="color: #000;">
+                            <span>夺金四贱客<strong>￥50</strong>起</span>
+                        </a>
+                        <a href="movie/detail/76682?cid=31125001" style="color: #000;">
+                            <span>不成问题的问题<strong>￥50</strong>起</span>
+                        </a>
+                        <a href="movie/detail/101331?cid=31125001" style="color: #000;">
+                            <span>至暗时刻 <strong>￥50</strong>起</span>
+                        </a>
+                        <a href="movie/detail/85777?cid=31125001" style="color: #000;">
+                            <span>推理笔记<strong>￥50</strong>起</span>
+                        </a>
+                        <a href="movie/detail/87988?cid=31125001" style="color: #000;">
+                            <span>空难余波 <strong>￥100</strong>起</span>
+                        </a>
+                        <a href="movie/detail/91551?cid=31125001" style="color: #000;">
+                            <span>引爆者<strong>￥100</strong>起</span>
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <div class="video_list">
+                <div class="video_tip clearfix">
+                    <a href="cinema/detail/31113501" class="video_icon"><img
+                            src="http://file.komovie.cn/piaocang/gallery/14320045247297.jpg" alt="" width="200px"
+                            height="150px"></a>
+                    <dl>
+                        <dt><a href="cinema/detail/31113501">SFC上影影城（七宝店）</a></dt>
+                        <dd>影院地址：闵行区漕宝路3489号汇宝广场8楼</dd>
+                        <dd>联系电话：021-64119776</dd>
+                        <!--<dd>业务合作：周女士 13311852230/56530761</dd>-->
+                        <dd> 营业时间：星期一至星期日：00:00:00-23:59:00</dd>
+                        <!--<dd class="video_key clearfix"><span>双机3D</span><span>IMAX</span><span>VIP厅</span></dd>
+                    --></dl>
+                    <ul>
+                        <!--<li class="video_start"><span></span><span></span><span></span><span></span><span class="video_position"></span><strong>8</strong><font>.5</font></li>
+                        <li class="video_number clearfix"><img src="../images/video_number.png" alt=""></li>
+                        <li class="video_start">微信公众账号</li>-->
+                    </ul>
+                </div>
+                <div class="video_hot clearfix">
+                    <font>正在热映：</font>
+                    <p>
+                        <a href="movie/detail/101330?cid=31113501" style="color: #000;">
+                            <span>烟花<strong>￥40</strong>起</span>
+                        </a>
+                        <a href="movie/detail/101310?cid=31113501" style="color: #000;">
+                            <span>寻梦环游记<strong>￥40</strong>起</span>
+                        </a>
+                        <a href="movie/detail/99282?cid=31113501" style="color: #000;">
+                            <span>正义联盟<strong>￥40</strong>起</span>
+                        </a>
+                        <a href="movie/detail/101339?cid=31113501" style="color: #000;">
+                            <span>维京：王者之战<strong>￥40</strong>起</span>
+                        </a>
+                        <a href="movie/detail/100591?cid=31113501" style="color: #000;">
+                            <span>这就是命<strong>￥40</strong>起</span>
+                        </a>
+                        <a href="movie/detail/101332?cid=31113501" style="color: #000;">
+                            <span>相声大电影之我要幸福 <strong>￥40</strong>起</span>
+                        </a>
+                        <a href="movie/detail/100245?cid=31113501" style="color: #000;">
+                            <span>垫底联盟<strong>￥40</strong>起</span>
+                        </a>
+                        <a href="movie/detail/99284?cid=31113501" style="color: #000;">
+                            <span>嘉年华<strong>￥40</strong>起</span>
+                        </a>
+                        <a href="movie/detail/99122?cid=31113501" style="color: #000;">
+                            <span>追捕<strong>￥40</strong>起</span>
+                        </a>
+                        <a href="movie/detail/85777?cid=31113501" style="color: #000;">
+                            <span>推理笔记<strong>￥40</strong>起</span>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="list_right pt_none fr">
+            <div class="list_flack hidden">
+                <a href="activity/detail/56" target="_blank"><img
+                        src="http://file.komovie.cn/yingguan/picture/201608/20160801/14700451823933.jpg" width="259px"
+                        height="115px" alt=""></a>
+                <a href="activity/detail/55" target="_blank"><img
+                        src="http://file.komovie.cn/yingguan/picture/201704/20170410/14918090728567.jpg" width="259px"
+                        height="115px" alt=""></a>
+                <a href="activity/detail/54" target="_blank"><img
+                        src="http://file.komovie.cn/yingguan/picture/201602/20160226/14564529956707.jpg" width="259px"
+                        height="115px" alt=""></a>
+                <a href="activity/detail/53" target="_blank"><img
+                        src="http://file.komovie.cn/yingguan/picture/201602/20160216/14556019546268.jpg" width="259px"
+                        height="115px" alt=""></a>
+            </div>
+            <div class="detail_best">
+                <p><!--<a href="#" class="fr">MORE</a>--> 热门影城推荐</p>
+            </div>
+            <div class="list_hot">
+                <div class="list_point">一周购票排行</div>
+                <div class="list_offer clearfix">
+                    <a href="movie/detail/101310" class="list_show"><img
+                            src="http://audio.komovie.cn/sns/2017/10/24/96789839896102156148.jpg" alt="" width="79px"
+                            height="119px;"></a>
+                    <div class="list_one">
+                        <span class="clearfix"><a href="movie/detail/101310">寻梦环游记</a>
+                            <!-- <strong>8</strong><font>.0</font> --></span>
+                        <div class="list_type">动画 / 音乐 / 冒险//</div>
+                        <a href="site/choose/101310" class="list_seat">选座购票</a>
+                    </div>
+                </div>
+                <div class="list_offer clearfix">
+                    <a href="movie/detail/101330" class="list_show"><img
+                            src="https://img.komovie.cn/poster/big/15101932296488.jpg" alt="" width="79px"
+                            height="119px;"></a>
+                    <div class="list_one">
+                        <span class="clearfix"><a href="movie/detail/101330">烟花</a>
+                            <!-- <strong>8</strong><font>.0</font> --></span>
+                        <div class="list_type">剧情 / 动画//</div>
+                        <a href="site/choose/101330" class="list_seat">选座购票</a>
+                    </div>
+                </div>
+                <div class="list_offer clearfix">
+                    <a href="movie/detail/99282" class="list_show"><img
+                            src="http://audio.komovie.cn/sns/2017/10/16/33456717199326817984.jpg" alt="" width="79px"
+                            height="119px;"></a>
+                    <div class="list_one">
+                        <span class="clearfix"><a href="movie/detail/99282">正义联盟</a>
+                            <!-- <strong>8</strong><font>.0</font> --></span>
+                        <div class="list_type">动作 / 科幻 / 奇幻 / 冒险//</div>
+                        <a href="site/choose/99282" class="list_seat">选座购票</a>
+                    </div>
+                </div>
+                <div class="list_offer clearfix">
+                    <a href="movie/detail/100593" class="list_show"><img
+                            src="http://audio.komovie.cn/sns/2017/10/18/58615602858462714739.jpg" alt="" width="79px"
+                            height="119px;"></a>
+                    <div class="list_one">
+                        <span class="clearfix"><a href="movie/detail/100593"> 不倒侠</a>
+                            <!-- <strong>8</strong><font>.0</font> --></span>
+                        <div class="list_type">爱情 / 科幻//</div>
+                        <a href="site/choose/100593" class="list_seat">选座购票</a>
+                    </div>
+                </div>
+                <div class="list_offer clearfix">
+                    <a href="movie/detail/101339" class="list_show"><img
+                            src="https://img.komovie.cn/poster/big/15100188546693.jpg" alt="" width="79px"
+                            height="119px;"></a>
+                    <div class="list_one">
+                        <span class="clearfix"><a href="movie/detail/101339">维京：王者之战</a>
+                            <!-- <strong>8</strong><font>.0</font> --></span>
+                        <div class="list_type">剧情 / 动作 / 历史//</div>
+                        <a href="site/choose/101339" class="list_seat">选座购票</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="poster_banner pd_30 mb_none"><a href="" target="_blank"><img
+            src="http://file.komovie.cn/yingguan/picture/201710/20171023/15087429473015.jpg" width="1200px"
+            height="118px" alt=""></a></div>
+</div>
+<script type="text/javascript">
+    function cinemaCityShow(obj) {
+        var cz = jQuery(obj).text();
+        jQuery('.video_color').attr('class', 'cz_class');
+        jQuery(obj).attr('class', 'video_color');
+        jQuery('.video_region').hide();
+        jQuery('.shows').attr('class', 'none');
+        jQuery("span[cn='" + cz + "']").attr('class', 'shows');
+        jQuery("." + cz).show();
+    }
+
+</script><!--------- 底部 ---------------->
+<div id="foot">
+    <div class="wrap">
+        <div class="footer">
+            <div class="service_mode clearfix">
+                <div class="service_left">
+                    <div class="local_city fl">
+                        <div class="local_title clearfix"><strong>本地影城</strong><span class="local_width1"></span><a
+                                href="cinema/index">更多&gt;&gt;</a></div>
+                        <div class="yard_list clearfix" id="cinema_div_0" style="display: block">
+                            <div class="yard_left_free left"></div>
+                            <div class="yard_middle left">
+                                <a href="cinema/detail/31081501" class="yard_picture"><img
+                                        src="http://file.komovie.cn/piaocang/gallery/14320030803537.jpg" width="76px"
+                                        height="58px" alt=""></a>
+                                <p>
+                                    <a href="cinema/detail/31081501">SFC上海影城</a>
+                                    <span>长宁区新华路160号(番禺路口)</span>
+                                    <font>021-62817017</font>
+                                </p>
+                            </div>
+                            <div class="yard_right left" onclick="chang_cinema(1,'max')"></div>
+                        </div>
+                        <div class="yard_list clearfix" id="cinema_div_1" style="display: none">
+                            <div class="yard_left left" onclick="chang_cinema(0,'min')"></div>
+                            <div class="yard_middle left">
+                                <a href="cinema/detail/31128901" class="yard_picture"><img src="" width="76px"
+                                                                                           height="58px" alt=""></a>
+                                <p>
+                                    <a href="cinema/detail/31128901">SFC上影影城（丁香路店）</a>
+                                    <span>中国（上海）自由贸易试验区丁香路858号三楼</span>
+                                    <font>021-68585768</font>
+                                </p>
+                            </div>
+                            <div class="yard_right left" onclick="chang_cinema(2,'max')"></div>
+                        </div>
+                        <div class="yard_list clearfix" id="cinema_div_2" style="display: none">
+                            <div class="yard_left left" onclick="chang_cinema(1,'min')"></div>
+                            <div class="yard_middle left">
+                                <a href="cinema/detail/31129101" class="yard_picture"><img src="" width="76px"
+                                                                                           height="58px" alt=""></a>
+                                <p>
+                                    <a href="cinema/detail/31129101">SFC上影影城（金桥太茂店）</a>
+                                    <span>上海市浦东新区金高路1882号金桥太茂广场四楼L401</span>
+                                    <font>68766608</font>
+                                </p>
+                            </div>
+                            <div class="yard_right left" onclick="chang_cinema(3,'max')"></div>
+                        </div>
+                        <div class="yard_list clearfix" id="cinema_div_3" style="display: none">
+                            <div class="yard_left left" onclick="chang_cinema(2,'min')"></div>
+                            <div class="yard_middle left">
+                                <a href="cinema/detail/31124501" class="yard_picture"><img
+                                        src="http://file.komovie.cn/piaocang/gallery/14317687592970.jpg" width="76px"
+                                        height="58px" alt=""></a>
+                                <p>
+                                    <a href="cinema/detail/31124501">SFC上影影城（世博店）</a>
+                                    <span>浦东新区世博大道1200号世博文化中心6楼</span>
+                                    <font>021-20251186</font>
+                                </p>
+                            </div>
+                            <div class="yard_right left" onclick="chang_cinema(4,'max')"></div>
+                        </div>
+                        <div class="yard_list clearfix" id="cinema_div_4" style="display: none">
+                            <div class="yard_left left" onclick="chang_cinema(3,'min')"></div>
+                            <div class="yard_middle left">
+                                <a href="cinema/detail/31125001" class="yard_picture"><img
+                                        src="http://file.komovie.cn/piaocang/gallery/14320039065760.jpg" width="76px"
+                                        height="58px" alt=""></a>
+                                <p>
+                                    <a href="cinema/detail/31125001">SFC上影影城（喜玛拉雅店）</a>
+                                    <span>浦东新区芳甸路1188弄喜玛拉雅中心7-8楼</span>
+                                    <font>021-60457099</font>
+                                </p>
+                            </div>
+                            <div class="yard_right left" onclick="chang_cinema(5,'max')"></div>
+                        </div>
+                        <div class="yard_list clearfix" id="cinema_div_5" style="display: none">
+                            <div class="yard_left left" onclick="chang_cinema(4,'min')"></div>
+                            <div class="yard_middle left">
+                                <a href="cinema/detail/31113501" class="yard_picture"><img
+                                        src="http://file.komovie.cn/piaocang/gallery/14320045247297.jpg" width="76px"
+                                        height="58px" alt=""></a>
+                                <p>
+                                    <a href="cinema/detail/31113501">SFC上影影城（七宝店）</a>
+                                    <span>闵行区漕宝路3489号汇宝广场8楼</span>
+                                    <font>021-64119776</font>
+                                </p>
+                            </div>
+                            <div class="yard_right_free left"></div>
+                        </div>
+                    </div>
+                    <div class="service_link fr">
+                        <p class="service_title">友情链接</p>
+                        <div class="link_list clearfix">
+                            <a href="http://www.sh-sfc.com" target="_blank"><img src="../../images/link_1.jpg" alt=""></a>
+                            <a href="http://www.sfs-cn.com" target="_blank"><img src="../../images/link_2.jpg" alt=""></a>
+                            <a href="" target="_blank"><img src="../../images/link_3.jpg" alt=""></a>
+                            <a href="http://weibo.com/u/5592001638?topnav=1&wvr=6&topsug=1" target="_blank"><img
+                                    src="../../images/link_4.jpg" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div><!--banner-->
+            <div class="site_map clearfix">
+                <a href="#" class="movie_logo"><img src="../../images/logo.png" alt=""></a>
+                <a href="http://weibo.com/u/5592001638?topnav=1&wvr=6&topsug=1" target="_blank"><img
+                        src="../../images/movie_concern.png" alt="" class="movie_concern"></a>
+                <a class="movie_link" href="site/help/48?tag=1" target="_blank">常见问题(FAQ) </a>
+                <span>|</span>
+                <a class="movie_link" href="site/help/47?tag=1" target="_blank">订单状态说明</a>
+                <span>|</span>
+                <a class="movie_link" href="site/help/45?tag=1" target="_blank">影城取票</a>
+                <span>|</span>
+                <a class="movie_link" href="site/help/44?tag=1" target="_blank">购票流程</a>
+                <span>|</span>
+                <a class="movie_link" href="site/help/11?tag=1" target="_blank">快速购票 </a>
+                <span>|</span>
+                <a class="movie_link" href="site/help/10?tag=1" target="_blank">注册/登录 </a>
+
+                &nbsp;&nbsp;客服电话 400-607-5588
+            </div>
+        </div>
+    </div>
+    <div class="bg_black" style=" height: 46px;">
+        <div class="wrap">
+            <div class="copyright white">
+                <div class="left service_our">
+                    <a href="site/help/21" target="_blank">隐私保护</a>
+                    <span>|</span> <a href="site/help/19" target="_blank">联系我们</a>
+                    <span>|</span> <a href="site/help/18" target="_blank">关于我们</a>
+                    <span>|</span> <a href="http://wpa.qq.com/msgrd?v=3&uin=2087521174&site=qq&menu=yes"
+                                      target="_blank">团体购票</a>
+                </div>
+
+                <div class="right"><a href="http://www.miitbeian.gov.cn" target="_blank" style="color: #b4b4b4;">沪ICP备15055478号</a>
+                    Copyright © 2015 sfccinema.com 版权所有
+                </div>
+                <div style="width:300px;margin:0 auto; padding:13px 0;">
+                    <a target="_blank"
+                       href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010402000757"
+                       style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
+                        <img src="../../images/beian.png" style="float:left;">
+                        <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">沪公网安备
+                            31010402000757号</p>
+                    </a>&nbsp;&nbsp;
+                    <a href="http://wljg.ynaic.gov.cn:80/ynwjww/indexquery/indexqueryAction!dizview.dhtml?chr_id=2d5d15ffe74fafdaa6120705823f40b5&amp;bus_ent_id=530100D000539002&amp;bus_ent_chr_id=db76aeb2d70642ae8153607fc6cfab0c"
+                       target="_blank"
+                       style="background-color: #FFF;display:inline-block;text-decoration:none;height:30px;line-height:30px;">
+                        <img src="http://wljg.ynaic.gov.cn:80/ynwjww/images/govIcon.gif" width="25" height="30"
+                             title="云南网监电子标识" alt="云南网监电子标识" border="0"/>
+                    </a>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="side_icon">
+    <a href="http://wpa.qq.com/msgrd?v=3&uin=2087521174&site=qq&menu=yes" target="_blank"><img
+            src="../../images/index_service.png" alt="" title="在线客服"></a>
+    <a href="http://s.share.baidu.com/?click=1&amp;to=tsina&amp;type=text&amp;key=&amp;sign=on&amp;desc=&amp;comment=&amp;searchPic=0&amp;&amp;url=&amp;pic=/images/logo.png&amp;title=%E4%B8%8A%E5%BD%B1%E7%94%B5%E5%BD%B1%E7%BD%91%EF%BC%8C%E7%9C%8B%E7%94%B5%E5%BD%B1%E5%85%A8%E8%87%AA%E5%8A%A9%EF%BC%8C%E5%B0%B1%E8%BF%99%E4%B9%88%E7%AE%80%E5%8D%95%EF%BC%8C%E5%BF%AB%E6%9D%A5%E5%9B%B4%E8%A7%82%E5%90%A7%EF%BC%81%28%E6%9D%A5%E8%87%AA%E4%B8%8A%E5%BD%B1%29%EF%BC%81"
+       target="_blank" class="helper-nav-share bds_mshare" data-cmd="mshare" hidefocus="true""><img
+        src="../../images/index_share.png" title="分享"></a>
+    <a href="javascript:scroll(0,0)"><img src="../../images/index_top.png" title="回到顶部"></a>
+</div>
+<img src="../../images/loading.gif" class="ko_loading">
+</body>
+</html>
+<script type="text/javascript">
+    jQuery('#city_all').click(function () {
+        jQuery("#city_list").toggle();
+    });
+
+    function city_show(obj) {
+        var cz = jQuery(obj).text();
+        jQuery('.letter_current').attr('class', 'cz_class');
+        jQuery(obj).attr('class', 'letter_current');
+        jQuery('.city_current').attr('class', 'none');
+        jQuery('.city_hot a').attr('class', 'city_current');
+        jQuery("a[cn='" + cz + "']").attr('class', 'city_current');
+    }
+
+    function change_city(obj) {
+        jQuery("#city_now").text(jQuery(obj).text());
+        var city_id = jQuery(obj).attr('cityid');
+        console.log(city_id);
+        jQuery.ajax({
+            type: "post",
+            url: "site/changeCity",
+            data: "city_id=" + city_id,
+            success: function (data) {
+                if (1 == data) {
+                    showEasyMsg('城市切换失败');
+                } else {
+                    location.reload();
+                }
+            }
+        });
+    }
+</script>
+

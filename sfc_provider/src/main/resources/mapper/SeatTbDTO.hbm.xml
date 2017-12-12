@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="cc.xpress.bean.dto.SeatTbDTO" table="seat_tb" schema="sfc_db">
+        <id name="seatId">
+            <column name="seat_id" sql-type="int(11)"/>
+            <generator class="native"/>
+        </id>
+        <property name="seatRow">
+            <column name="seat_row" sql-type="int(11)"/>
+        </property>
+        <property name="seatCol">
+            <column name="seat_col" sql-type="int(11)"/>
+        </property>
+        <property name="seatStatus">
+            <column name="seat_status" sql-type="int(11)"/>
+        </property>
+        <!--seat与hall的关系由seat维护-->
+        <many-to-one name="hallTbDTO" cascade="save-update" column="hall_id" class="cc.xpress.bean.dto.HallTbDTO"/>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="cc.xpress.bean.dto.OrderTbDTO" table="order_tb" schema="sfc_db">
+        <id name="orderId">
+            <column name="order_id" sql-type="int(11)"/>
+            <generator class="native"/>
+        </id>
+        <property name="orderCreateTime">
+            <column name="order_create_time" sql-type="timestamp"/>
+        </property>
+        <property name="orderPayTime">
+            <column name="order_pay_time" sql-type="datetime"/>
+        </property>
+        <property name="orderStatus">
+            <column name="order_status" sql-type="int(11)"/>
+        </property>
+        <property name="userTel">
+            <column name="user_tel" sql-type="varchar(11)"/>
+        </property>
+        <property name="orderPayMethod">
+            <column name="order_pay_method" sql-type="varchar(20)"/>
+        </property>
+        <property name="orderPayPrice">
+            <column name="order_pay_price" sql-type="int(11)"/>
+        </property>
+        <property name="orderSumPrice">
+            <column name="order_sum_price" sql-type="int(11)"/>
+        </property>
+        <!--order与user的关系由order维护-->
+        <many-to-one name="userTbDTO" cascade="save-update" column="user_id" class="cc.xpress.bean.dto.UserTbDTO"/>
+        <!--order与plan的关系由order维护-->
+        <many-to-one name="planTbDTO" cascade="save-update" column="plan_id" class="cc.xpress.bean.dto.PlanTbDTO"/>
+        <many-to-one name="cinemaTbDTO" column="cinema_id" class="cc.xpress.bean.dto.CinemaTbDTO" cascade="save-update"/>
+        <many-to-one name="movieTbDTO" column="movie_id" class="cc.xpress.bean.dto.MovieTbDTO" cascade="save-update"/>
+        <many-to-one name="hallTbDTO" column="hall_id" class="cc.xpress.bean.dto.HallTbDTO" cascade="save-update"/>
+        <set name="orderSeatTbDTOS" batch-size="10" table="order_seat_tb" order-by="os_id" cascade="save-update">
+            <key column="order_id"/>
+            <one-to-many class="cc.xpress.bean.dto.OrderSeatTbDTO"/>
+        </set>
+    </class>
+</hibernate-mapping>
